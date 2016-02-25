@@ -5,6 +5,7 @@
     <div class="panel-heading">
         <h1>Registration</h1>
     </div>
+    
     <div class="panel-body">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#home" data-toggle="tab">New</a>
@@ -56,6 +57,7 @@
                 </div>
                 <!-- /.panel-body -->
             </div>
+
             <div class="tab-pane fade" id="profile">
                 <h4>Existing Patient</h4>
                 <div class="panel-body">
@@ -75,15 +77,16 @@
                 </div>
                 <!-- /.panel-body -->
             </div>
-            </div>
-            <div class="tab-pane fade" id="messages">
+        </div>
+
+        <div class="tab-pane fade" id="messages">
                 <h4>empty tab</h4>
                 <p>empty</p>
-            </div>
-            <div class="tab-pane fade" id="settings">
+        </div>
+
+        <div class="tab-pane fade" id="settings">
                 <h4>Empty tab</h4>
                 <p>empty</p>
-            </div>
         </div>
     </div>
 </div>
