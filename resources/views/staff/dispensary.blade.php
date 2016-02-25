@@ -4,14 +4,12 @@
 <div class="panel panel-default">
 
     <ul class="nav nav-tabs">
-            <li class="active"><a href="#home" data-toggle="tab">Dispense</a>
-            </li>
-            <li class=""><a href="#profile" data-toggle="tab">Sales report</a>
-            </li>
-            <li class=""><a href="#messages" data-toggle="tab"></a>
-            </li>
-            <!-- <li class=""><a href="#settings" data-toggle="tab">Empty</a>
-            </li> -->
+        <li class="active"><a href="#home" data-toggle="tab">Dispense</a>
+        </li>
+        <li class=""><a href="#profile" data-toggle="tab">Sales report</a>
+        </li>
+        <li class=""><a href="#messages" data-toggle="tab"></a>
+        </li>
     </ul>
 
     <div class="panel-heading">
@@ -48,6 +46,7 @@
                             <option>Panel</option>
                         </select>
                     </div>
+                    
                     <button type="submit" class="btn btn-success">Submit</button>
                 </form>
             </div>
