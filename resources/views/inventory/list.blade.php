@@ -109,8 +109,11 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-md-offset-11">
-                    <a href="{{action('InvController@create')}}" class='btn btn-primary'>Add</a>
+                    <div class="row">
+                        <div class="col-md-9"></div>
+                        <a href="{{action('InvController@create')}}" class='btn btn-primary'>Add</a>
+                        <a href="#" class='btn btn-primary'>Edit</a>
+                        <a href="#" class='btn btn-danger'>Delete</a>
                     </div>
                 </div>
             </div>
