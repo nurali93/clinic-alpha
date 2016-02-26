@@ -16,7 +16,7 @@
 // });
 
 Route::get('/', function(){
-	return view('login');
+	return view('auth/login');
 });
 
 Route::get('/dispensary', function(){
@@ -27,10 +27,27 @@ Route::get('/doctor', 'DocController@index');
 Route::get('/doctor/newcase', 'DocController@newcase');
 Route::get('doctor/patient', 'DocController@patientdb');
 
-Route::get('/staff', 'StaffController@index');
-Route::get('/staff/register', 'StaffController@register');
-Route::get('/staff/panel', 'StaffController@panel');
-Route::get('/staff/dispensary', 'StaffController@dispense');
+Route::get('/staff',['middleware' => 'auth', 'uses' => 'StaffController@index']);
+Route::get('/staff/register',['middleware' => 'auth', 'uses' => 'StaffController@register']);
+Route::get('/staff/panel',['middleware' => 'auth', 'uses' => 'StaffController@panel']);
+Route::get('/staff/dispensary',['middleware' => 'auth', 'uses' => 'StaffController@dispense']);
 
-Route::resource('inventory','InvController');
-Route::get('/inventory', 'InvController@index');
+
+Route::group(['middleware' => 'auth'], function(){
+	Route::resource('inventory','InvController');
+});
+Route::get('/inventory',['middleware' => 'auth', 'uses' => 'InvController@index']);
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::controllers([
+   'password' => 'Auth\PasswordController',
+]);
