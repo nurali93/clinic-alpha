@@ -32,7 +32,7 @@ Route::get('/staff/register',['middleware' => 'auth', 'uses' => 'StaffController
 Route::get('/staff/panel',['middleware' => 'auth', 'uses' => 'StaffController@panel']);
 Route::get('/staff/dispensary',['middleware' => 'auth', 'uses' => 'StaffController@dispense']);
 
-
+//CRUD routing
 Route::group(['middleware' => 'auth'], function(){
 	Route::resource('inventory','InvController');
 });
@@ -42,6 +42,13 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::resource('patient','PatientController');
 });
 Route::get('/patient',['middleware' => 'auth', 'uses' => 'PatientController@index']);
+
+Route::group(['middleware' => 'auth'], function(){
+	Route::resource('panel','PanelController');
+});
+Route::get('/panel',['middleware' => 'auth', 'uses' => 'PanelController@index']);
+
+
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

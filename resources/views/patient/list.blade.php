@@ -38,6 +38,12 @@
                             <td>{{ $pat->pt_postcode }}</td>
                             <td>{{ $pat->pt_city }}</td>
                             <td>{{ $pat->pt_state }}</td>
+                            <td><a href="{{action('PatientController@edit', $pat->id)}}" class="btn btn-warning">Edit</a></td>
+                            <td>
+                                {!! Form::open(['method' => 'DELETE','route' => ['patient.destroy', $pat->id]]) !!}
+                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                {!! Form::close() !!}
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

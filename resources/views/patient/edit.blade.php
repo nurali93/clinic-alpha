@@ -3,16 +3,16 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h1>Registration</h1>
+        <h1>Edit Patient Details</h1>
     </div>
     
     <div class="panel-body">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#home" data-toggle="tab">New</a>
             </li>
-            <li class=""><a href="#profile" data-toggle="tab">Existing</a>
+            <!-- <li class=""><a href="#profile" data-toggle="tab">Existing</a>
             </li>
-            <!-- <li class=""><a href="#messages" data-toggle="tab">Empty</a>
+            <li class=""><a href="#messages" data-toggle="tab">Empty</a>
             </li>
             <li class=""><a href="#settings" data-toggle="tab">Empty</a>
             </li> -->
@@ -20,11 +20,11 @@
 
         <div class="tab-content">
             <div class="tab-pane fade active in" id="home">
-                <h4>New Patient</h4>
+                <h4>Edit Details of {{$patient->pt_name}}</h4>
                 <div class="panel-body">
                     <div class="row">
                         <div class="form-group">
-                            {!! Form::open(array('action' => 'PatientController@store')) !!}
+                            {!! Form::model($patient, ['method' => 'PATCH','route' => ['patient.update', $patient->id]]) !!}
                             <div class="col-lg-6">
                                 {!! Form::label('', 'IC Number', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_ic', null, ['class' => 'form-control']) !!}

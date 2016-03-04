@@ -9,7 +9,7 @@
                 <a href="{{action('PatientController@create')}}"><i class="fa fa-pencil-square"></i> Registration</a>
             </li>
 			<li>
-                <a href="{{action('StaffController@panel')}}"><i class="fa fa-money"></i> Panel List</a>
+                <a href="{{action('PanelController@index')}}"><i class="fa fa-money"></i> Panel List</a>
             </li>
             <li>
                 <a href="{{action('StaffController@dispense')}}"><i class="fa fa-qrcode"></i> Dispensary</a>

@@ -116,11 +116,9 @@
                                     <td>{{ $inv->unitsInPack }}</td>
                                     <td><a href="{{action('InvController@edit', $inv->id)}}" class="btn btn-warning">Edit</a></td>
                                     <td>
-                                        <form action="{{action('InvController@destroy',$inv->id)}}" method="post">
-                                            <input type="hidden" name="_method" value="delete">
-                                            <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                            <button type="submit" class = 'btn btn-danger'>Delete</button>
-                                        </form>
+                                        {!! Form::open(['method' => 'DELETE','route' => ['inventory.destroy', $inv->id]]) !!}
+                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::close() !!}
                                     </td>
                                 </tr>
                                 @endforeach

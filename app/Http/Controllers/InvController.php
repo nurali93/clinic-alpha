@@ -22,7 +22,6 @@ class InvController extends Controller
     public function index()
     {
         $data['inventory'] = inventory::all();
-
         return view('inventory.list',$data);
     }
 
@@ -88,8 +87,8 @@ class InvController extends Controller
      */
     public function show($id)
     {
-        $inventory = Inventory::find($id);
-        return response()->json($inventory);
+        // $inventory = Inventory::find($id);
+        // return response()->json($inventory);
     }
 
     /**
@@ -111,7 +110,7 @@ class InvController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update(Request $request, $id)
     {
         $dCode = $request->input('drug_code');
         $dName = $request->input('drug_name');
@@ -144,7 +143,6 @@ class InvController extends Controller
         $inventory->dispenseQuantity = $dDispQtt;
         $inventory->spu = $dSpu;
         $inventory->unitsInPack = $dUnitPck;
-        $inventory->save();
         $inventory->save();
         
         return redirect()->action('InvController@index');
