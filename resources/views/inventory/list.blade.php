@@ -31,34 +31,39 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Drug ID</th>
-                                    <th>Drug Name</th>
-                                    <th>In Stock</th>
-                                    <th>Drug Type</th>
+                                    <th>Drug Code</th>
+                                    <th>Name</th>
+                                    <th>Low Limit</th>
+                                    <th>Type</th>
                                     <th>Remarks</th>
                                     <th>Precaution</th>
+                                    <th>Date of Purchase</th>
+                                    <th>Date of Expiry</th>
                                     <th>Supplier</th>
+                                    <th>Intake Time</th>
+                                    <th>Frequency</th>
+                                    <th>Dispense Quantity</th>
+                                    <th>SPU</th>
+                                    <th>Units per Pack</th>
                                 </tr>
                             </thead>
                             <tbody class="searchable">
-                                <tr class="danger">
-                                    <td>1</td>
-                                    <td>Paracetamol</td>
-                                    <td>8</td>
-                                    <td>Unit</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                </tr>
-                                @foreach ($inventories as $inv)
+                                @foreach ($inventory as $inv)
                                 <tr class="odd gradeX">
-                                    <td>{{ $inv->id + 1}}</td>
+                                    <td>{{ $inv->drug_code }}</td>
                                     <td>{{ $inv->drug_name }}</td>
-                                    <td>{{ $inv->drug_stock }}</td>
+                                    <td>{{ $inv->drug_lowlimit }}</td>
                                     <td>{{ $inv->drug_type }}</td>
                                     <td>{{ $inv->drug_remarks }}</td>
                                     <td>{{ $inv->drug_precaution }}</td>
+                                    <td>{{ $inv->dateOfPurchase }}</td>
+                                    <td>{{ $inv->dateOfExpiry }}</td>
                                     <td>{{ $inv->drug_supplier }}</td>
+                                    <td>{{ $inv->intakeTime }}</td>
+                                    <td>{{ $inv->frequency }}</td>
+                                    <td>{{ $inv->dispenseQuantity }}</td>
+                                    <td>{{ $inv->spu }}</td>
+                                    <td>{{ $inv->unitsInPack }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -76,34 +81,47 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Drug ID</th>
-                                    <th>Drug Name</th>
-                                    <th>In Stock</th>
-                                    <th>Drug Type</th>
+                                    <th>Drug Code</th>
+                                    <th>Name</th>
+                                    <th>Low Limit</th>
+                                    <th>Type</th>
                                     <th>Remarks</th>
                                     <th>Precaution</th>
+                                    <th>Date of Purchase</th>
+                                    <th>Date of Expiry</th>
                                     <th>Supplier</th>
+                                    <th>Intake Time</th>
+                                    <th>Frequency</th>
+                                    <th>Dispense Quantity</th>
+                                    <th>SPU</th>
+                                    <th>Units per Pack</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="danger">
-                                    <td>1</td>
-                                    <td>Paracetamol</td>
-                                    <td>8</td>
-                                    <td>Unit</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                </tr>
-                                @foreach ($inventories as $inv)
+                                @foreach ($inventory as $inv)
                                 <tr class="odd gradeX">
-                                    <td>{{ $inv->id + 1}}</td>
+                                    <td>{{ $inv->drug_code }}</td>
                                     <td>{{ $inv->drug_name }}</td>
-                                    <td>{{ $inv->drug_stock }}</td>
+                                    <td>{{ $inv->drug_lowlimit }}</td>
                                     <td>{{ $inv->drug_type }}</td>
                                     <td>{{ $inv->drug_remarks }}</td>
                                     <td>{{ $inv->drug_precaution }}</td>
+                                    <td>{{ $inv->dateOfPurchase }}</td>
+                                    <td>{{ $inv->dateOfExpiry }}</td>
                                     <td>{{ $inv->drug_supplier }}</td>
+                                    <td>{{ $inv->intakeTime }}</td>
+                                    <td>{{ $inv->frequency }}</td>
+                                    <td>{{ $inv->dispenseQuantity }}</td>
+                                    <td>{{ $inv->spu }}</td>
+                                    <td>{{ $inv->unitsInPack }}</td>
+                                    <td><a href="{{action('InvController@edit', $inv->id)}}" class="btn btn-warning">Edit</a></td>
+                                    <td>
+                                        <form action="{{action('InvController@destroy',$inv->id)}}" method="post">
+                                            <input type="hidden" name="_method" value="delete">
+                                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                            <button type="submit" class = 'btn btn-danger'>Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -112,8 +130,6 @@
                     <div class="row">
                         <div class="col-md-9"></div>
                         <a href="{{action('InvController@create')}}" class='btn btn-primary'>Add</a>
-                        <a href="#" class='btn btn-primary'>Edit</a>
-                        <a href="#" class='btn btn-danger'>Delete</a>
                     </div>
                 </div>
             </div>
@@ -132,7 +148,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($inventories as $inv)
+                                @foreach ($inventory as $inv)
                                 <tr class="odd gradeX">
                                     <td>{{ $inv->drug_supplier }}</td>
                                 </tr>

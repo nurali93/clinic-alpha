@@ -6,7 +6,7 @@
                 <a href="{{ action('StaffController@index') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="{{action('StaffController@register')}}"><i class="fa fa-pencil-square"></i> Registration</a>
+                <a href="{{action('PatientController@create')}}"><i class="fa fa-pencil-square"></i> Registration</a>
             </li>
 			<li>
                 <a href="{{action('StaffController@panel')}}"><i class="fa fa-money"></i> Panel List</a>

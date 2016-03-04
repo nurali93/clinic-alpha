@@ -38,6 +38,11 @@ Route::group(['middleware' => 'auth'], function(){
 });
 Route::get('/inventory',['middleware' => 'auth', 'uses' => 'InvController@index']);
 
+Route::group(['middleware' => 'auth'], function(){
+	Route::resource('patient','PatientController');
+});
+Route::get('/patient',['middleware' => 'auth', 'uses' => 'PatientController@index']);
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
