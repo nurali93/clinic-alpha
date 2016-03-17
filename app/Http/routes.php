@@ -15,9 +15,21 @@
 //     return view('empty');
 // });
 
-Route::get('/', function(){
-	return view('auth/login');
-});
+// Route::get('/', function(){
+// 	return view('auth/login');
+// });
+
+Route::get('/', ['middleware' => 'auth', function () {
+    
+}]);
+
+Route::get('/', ['middleware' => 'admin', function () {
+    
+}]);
+
+Route::get('/', ['middleware' => 'doctor', function () {
+    
+}]);
 
 Route::get('/dispensary', function(){
 	return view('staff.dispensary');
@@ -47,6 +59,14 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::resource('panel','PanelController');
 });
 Route::get('/panel',['middleware' => 'auth', 'uses' => 'PanelController@index']);
+
+Route::get('admin', ['middleware' => 'admin', function(){
+	echo 'Welcome admin';
+}]);
+
+Route::get('doctor', ['middleware' => 'doctor', function(){
+	echo 'Welcome doctor';
+}]);
 
 
 

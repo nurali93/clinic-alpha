@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-12">
         <h1 class="page-header">
-            Dashboard <small>Ms Siti Hafizah</small>
+            Dashboard <small>{{ Auth::user()->name }}</small>
         </h1>
         <div class="panel panel-default">
             
