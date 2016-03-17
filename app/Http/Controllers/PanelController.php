@@ -40,30 +40,19 @@ class PanelController extends Controller
      */
     public function store(Request $request)
     {
-        $pCode = $request->input('p_code');
-        $pComp = $request->input('p_company');
-        $pConPer = $request->input('p_contactname');
-        $pTel = $request->input('p_telno');
-        $pExt = $request->input('p_ext');
-        $pFax = $request->input('p_fax');
-        $pEmail = $request->input('p_email');
-        $pAddr = $request->input('p_address');
-        $pCity = $request->input('p_city');
-        $pPost = $request->input('p_postcode');
-        $pStat = $request->input('p_state');
 
         $panel = new Panel;
-        $panel->p_code = $pCode;
-        $panel->p_company = $pComp;
-        $panel->p_contactname = $pConPer;
-        $panel->p_telno =  $pTel;
-        $panel->p_ext = $pExt;
-        $panel->p_fax = $pFax;
-        $panel->p_email = $pEmail;
-        $panel->p_address = $pAddr;
-        $panel->p_city = $pCity;
-        $panel->p_postcode = $pPost;
-        $panel->p_state = $pStat;
+        $panel->p_code = $request->input('p_code');
+        $panel->p_company = $request->input('p_company');
+        $panel->p_contactname = $request->input('p_contactname');
+        $panel->p_telno =  $request->input('p_telno');
+        $panel->p_ext = $request->input('p_ext');
+        $panel->p_fax = $request->input('p_fax');
+        $panel->p_email = $request->input('p_email');
+        $panel->p_address = $request->input('p_address');
+        $panel->p_city = $request->input('p_city');
+        $panel->p_postcode = $request->input('p_postcode');
+        $panel->p_state = $request->input('p_state');
         $panel->save();
 
         return redirect()->action('PanelController@index');

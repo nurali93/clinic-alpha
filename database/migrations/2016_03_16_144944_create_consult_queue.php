@@ -13,7 +13,7 @@ class CreateConsultQueue extends Migration
     public function up()
     {
         Schema::create('consult_queue', function (Blueprint $table) {
-            $table->increments('q_no');
+            $table->increments('id');
             $table->integer('pt_id')->unsigned();
             $table->foreign('pt_id')->references('id')->on('patients')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');

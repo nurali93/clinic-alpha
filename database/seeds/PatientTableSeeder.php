@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PatientTableSeeder extends Seeder{
 	public function run(){
-		DB::table('patient')->delete();
+		DB::table('patients')->delete();
 
 		$patient = array(
 			array(
@@ -36,7 +36,7 @@ class PatientTableSeeder extends Seeder{
 				)
 		);
 
-		DB::table('patient')->insert($patient);
+		DB::table('patients')->insert($patient);
 	}
 	
 }

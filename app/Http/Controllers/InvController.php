@@ -44,7 +44,6 @@ class InvController extends Controller
     public function store(Request $request)
     {
         //data input
-        $dCode = $request->input('drug_code');
         $dName = $request->input('drug_name');
         $dLow = $request->input('drug_lowlimit');
         $dType = $request->input('drug_type');
@@ -60,7 +59,6 @@ class InvController extends Controller
         $dUnitPck = $request->input('unitsInPack');
 
         $inventory = new Inventory;
-        $inventory->drug_code = $dCode;
         $inventory->drug_name = $dName;
         $inventory->drug_lowlimit = $dLow;
         $inventory->drug_type = $dType;
@@ -112,7 +110,6 @@ class InvController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dCode = $request->input('drug_code');
         $dName = $request->input('drug_name');
         $dLow = $request->input('drug_lowlimit');
         $dType = $request->input('drug_type');
@@ -129,7 +126,6 @@ class InvController extends Controller
 
 
         $inventory = Inventory::find($id);
-        $inventory->drug_code = $dCode;
         $inventory->drug_name = $dName;
         $inventory->drug_lowlimit = $dLow;
         $inventory->drug_type = $dType;

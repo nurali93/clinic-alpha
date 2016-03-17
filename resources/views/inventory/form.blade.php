@@ -1,5 +1,9 @@
 @extends('master')
+@section('sidebar')
+    @include('sidebar.staff')
+@stop
 @section('content')
+
 
 <div class="panel panel-body">
     <div class="row">
@@ -7,8 +11,6 @@
                 <div class="form-group">
                     <div class="col-lg-6">
                         {!! Form::open(array('action' => 'InvController@store')) !!}
-                        {!! Form::label('', 'Drug Code', ['class' => 'control-label']) !!}
-                        {!! Form::text('drug_code', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Drug Name', ['class' => 'control-label']) !!}
                         {!! Form::text('drug_name', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Low Limit', ['class' => 'control-label']) !!}

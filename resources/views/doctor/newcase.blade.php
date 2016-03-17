@@ -1,7 +1,8 @@
-@extends('doctor.dmaster')
+@extends('master')
+@section('sidebar')
+    @include('sidebar.doctor')
+@stop
 @section('content')
-
-
 
 <div class="panel panel-body">
     <ul class="nav nav-tabs">

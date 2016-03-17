@@ -1,5 +1,9 @@
 @extends('master')
+@section('sidebar')
+    @include('sidebar.staff')
+@stop
 @section('content')
+
     <div class="panel panel-default">
         <div class="panel-heading">
             List of Panel

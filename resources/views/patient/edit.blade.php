@@ -1,4 +1,7 @@
 @extends('master')
+@section('sidebar')
+    @include('sidebar.staff')
+@stop
 @section('content')
 
 <div class="panel panel-default">

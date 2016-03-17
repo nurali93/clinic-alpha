@@ -1,5 +1,9 @@
 @extends('master')
+@section('sidebar')
+    @include('sidebar.staff')
+@stop
 @section('content')
+
 <!-- Advanced Tables -->
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -11,8 +15,6 @@
                 <li class="active"><a href="#list" data-toggle="tab">Drug List</a>
                 </li>
                 <li class=""><a href="#manage" data-toggle="tab">Manage Stock</a>
-                </li>
-                <li class=""><a href="#supplier" data-toggle="tab">Supplier List</a>
                 </li>
                 <!-- <li class=""><a href="#settings" data-toggle="tab">Empty</a>
                 </li> -->
@@ -31,7 +33,6 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Drug Code</th>
                                     <th>Name</th>
                                     <th>Low Limit</th>
                                     <th>Type</th>
@@ -50,7 +51,6 @@
                             <tbody class="searchable">
                                 @foreach ($inventory as $inv)
                                 <tr class="odd gradeX">
-                                    <td>{{ $inv->drug_code }}</td>
                                     <td>{{ $inv->drug_name }}</td>
                                     <td>{{ $inv->drug_lowlimit }}</td>
                                     <td>{{ $inv->drug_type }}</td>
@@ -81,7 +81,6 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Drug Code</th>
                                     <th>Name</th>
                                     <th>Low Limit</th>
                                     <th>Type</th>
@@ -100,7 +99,6 @@
                             <tbody>
                                 @foreach ($inventory as $inv)
                                 <tr class="odd gradeX">
-                                    <td>{{ $inv->drug_code }}</td>
                                     <td>{{ $inv->drug_name }}</td>
                                     <td>{{ $inv->drug_lowlimit }}</td>
                                     <td>{{ $inv->drug_type }}</td>
@@ -128,31 +126,6 @@
                     <div class="row">
                         <div class="col-md-9"></div>
                         <a href="{{action('InvController@create')}}" class='btn btn-primary'>Add</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="supplier">
-                <div class="panel-heading">
-                     <h2>Supplier List</h2>
-                </div>
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                            <thead>
-                                <tr>
-                                    
-                                    <th>Supplier</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($inventory as $inv)
-                                <tr class="odd gradeX">
-                                    <td>{{ $inv->drug_supplier }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>

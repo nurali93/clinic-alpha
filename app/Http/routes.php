@@ -47,26 +47,28 @@ Route::get('/staff/dispensary',['middleware' => 'auth', 'uses' => 'StaffControll
 //CRUD routing
 Route::group(['middleware' => 'auth'], function(){
 	Route::resource('inventory','InvController');
+	Route::resource('supplier','SupplierController');
+	Route::resource('patient','PatientController');	
+	Route::resource('panel','PanelController');
+	Route::resource('case','CaseController');
 });
 Route::get('/inventory',['middleware' => 'auth', 'uses' => 'InvController@index']);
 
-Route::group(['middleware' => 'auth'], function(){
-	Route::resource('patient','PatientController');
-});
 Route::get('/patient',['middleware' => 'auth', 'uses' => 'PatientController@index']);
 
-Route::group(['middleware' => 'auth'], function(){
-	Route::resource('panel','PanelController');
-});
 Route::get('/panel',['middleware' => 'auth', 'uses' => 'PanelController@index']);
 
-Route::get('admin', ['middleware' => 'admin', function(){
-	echo 'Welcome admin';
-}]);
+Route::get('/supplier',['middleware' => 'auth', 'uses' => 'SupplierController@index']);
 
-Route::get('doctor', ['middleware' => 'doctor', function(){
-	echo 'Welcome doctor';
-}]);
+Route::get('/case',['middleware' => 'auth', 'uses' => 'CaseController@index']);
+
+// Route::get('admin', ['middleware' => 'admin', function(){
+// 	echo 'Welcome admin';
+// }]);
+
+// Route::get('doctor', ['middleware' => 'doctor', function(){
+// 	echo 'Welcome doctor';
+// }]);
 
 
 

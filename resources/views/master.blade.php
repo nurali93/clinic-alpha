@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		@include('includes.header')
-		@include('includes.sidebar')
+		@yield('sidebar')
 
 		<!-- /. PAGE WRAPPER START -->
         <div id="wrapper">
@@ -25,7 +25,7 @@
 	                    </div>
 	                </div> 
 	                 <!-- /. ROW  -->
-					 <footer><p>Klinik Hamidah Management System 1.0.0 alpha 1</p></footer>
+					 <footer><p>Klinik Hamidah Management System 1.0.0</p></footer>
 					</div>
              <!-- /. PAGE INNER  -->
             </div>

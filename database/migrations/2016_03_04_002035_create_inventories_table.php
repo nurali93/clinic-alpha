@@ -13,7 +13,7 @@ class CreateInventoriesTable extends Migration
     public function up()
     {
         Schema::create('inventories', function (Blueprint $table) {
-            $table->string('drug_code')->primary();
+            $table->increments('id');
             $table->string('drug_name');
             $table->integer('drug_stock');
             $table->integer('drug_lowlimit');
@@ -23,7 +23,7 @@ class CreateInventoriesTable extends Migration
             $table->date('dateOfPurchase');
             $table->date('dateOfExpiry');
             $table->integer('drug_supplier')->unsigned();
-            $table->foreign('drug_supplier')->references('supp_id')->on('suppliers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('drug_supplier')->references('id')->on('suppliers')->onDelete('cascade')->onUpdate('cascade');
             $table->string('supp_id');
             $table->string('intakeTime');
             $table->string('frequency');
