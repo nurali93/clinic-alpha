@@ -35,6 +35,10 @@ Route::get('/dispensary', function(){
 	return view('staff.dispensary');
 });
 
+Route::get('/register', function(){
+	return view('user.reg');
+});
+
 Route::get('/doctor', 'DocController@index');
 Route::get('/doctor/newcase', 'DocController@newcase');
 Route::get('doctor/patient', 'DocController@patientdb');
