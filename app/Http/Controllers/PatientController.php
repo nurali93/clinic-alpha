@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Patient;
-
+use App\Queue;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class PatientController extends Controller
 {
@@ -65,6 +66,12 @@ class PatientController extends Controller
         $patient->pt_city = $pCity;
         $patient->pt_state = $pState;
         $patient->save();
+
+        $queue = new Queue;
+        $queue->pt_ic = $pIc;
+        $queue->name = $pName;
+        $queue->status = 'Waiting';
+        $queue->save();
 
         return redirect()->action('PatientController@index');
     }
@@ -143,4 +150,6 @@ class PatientController extends Controller
         //Session::flash('flash_message', 'Successfully deleted!');
         return redirect()->action('PatientController@index');
     }
+
+    /*$ptid = DB::table('patients')->where('pt_ic', $pIc)->value('id');*/
 }
