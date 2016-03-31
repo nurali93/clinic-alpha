@@ -24,7 +24,7 @@
         <div class="tab-content">
             <div class="tab-pane fade active in" id="home">
                 <h4>New Patient</h4>
-                <div class="panel-body">
+                <div class="panel panel-body">
                     <div class="row">
                         <div class="form-group">
                             {!! Form::open(array('action' => 'PatientController@store')) !!}
@@ -58,12 +58,17 @@
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                     </div>
+                    <div class="row">
+                        <br>
+                        <div class="col-md-12">
+                                        
+                                        {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+                                        {!! Form::reset('Clear', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::close() !!} 
+                        </div>
+                    </div>
                     <!-- /.row (nested) -->
                 </div>
-                                &nbsp&nbsp&nbsp&nbsp
-                                {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-                                {!! Form::reset('Clear', ['class' => 'btn btn-danger']) !!}
-                                {!! Form::close() !!}
                 <!-- /.panel-body -->
             </div>
 
@@ -71,16 +76,20 @@
                 <h4>Existing Patient</h4>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>IC Number</label>
-                                    <input class="form-control">
-                                </div>
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </form>
+                        <div class="form-group">
+                            {!! Form::open(array('action' => 'PatientController@store')) !!}
+                            <div class="col-lg-6">
+                                {!! Form::label('', 'IC Number', ['class' => 'control-label']) !!}
+                                {!! Form::text('pt_id', null, ['class' => 'form-control']) !!}
+                            </div>
                         </div>
-                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <div class="row">
+                        <br>
+                        <div class="col-md-12">
+                                {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+                                {!! Form::close() !!} 
+                        </div>
                     </div>
                     <!-- /.row (nested) -->
                 </div>
