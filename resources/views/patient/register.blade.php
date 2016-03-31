@@ -43,7 +43,11 @@
                                 </div>
                                 <div class="col-lg-6">
                                 {!! Form::label('', 'Insurance Panel', ['class' => 'control-label']) !!}
-                                {!! Form::text('pt_panel', null, ['class' => 'form-control']) !!}
+                                <select name='pt_panel' class='form-control'>
+                                    @foreach ($panel as $pan)
+                                    <option>{{ $pan->p_company }}</option>
+                                    @endforeach
+                                </select>
                                 {!! Form::label('', 'Race', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_race', null, ['class' => 'form-control']) !!}
                                 {!! Form::label('', 'Address', ['class' => 'control-label']) !!}

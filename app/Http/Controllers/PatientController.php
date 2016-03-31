@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Patient;
 use App\Queue;
+use App\Panel;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -19,8 +21,9 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $data['patient'] = patient::all();
-        return view('patient.list',$data);
+        //$data['patient'] = patient::all();
+        $patient = Patient::all();
+        return view('patient.list',['patient' => $patient]);
     }
 
     /**
@@ -29,8 +32,9 @@ class PatientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('patient.register');
+    {   
+        $panel = Panel::all();
+        return view('patient.register')->with('panel',$panel);
     }
 
     /**
