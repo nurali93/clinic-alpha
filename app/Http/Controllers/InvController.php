@@ -98,7 +98,7 @@ class InvController extends Controller
     public function edit($id)
     {
         $data['inventory'] = Inventory::find($id);
-        return view('inventory.form',$data);
+        return view('inventory.edit',$data);
     }
 
     /**
