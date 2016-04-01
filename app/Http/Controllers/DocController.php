@@ -1,10 +1,14 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
+use App\Queue;
 
 class DocController extends Controller
 {
 	public function index()
 	{
-		return view('doctor.dashboard');
+		$queue = Queue::all();
+		return view('doctor.dashboard')->with('queue',$queue);
 	}
 
 	public function newcase()

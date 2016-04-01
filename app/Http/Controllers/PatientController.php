@@ -10,7 +10,7 @@ use App\Panel;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use DB;
+
 
 class PatientController extends Controller
 {

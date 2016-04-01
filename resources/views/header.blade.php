@@ -16,41 +16,20 @@
                         <i class="fa fa-users fa-fw"></i>Queue <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
+                        @foreach ($queue as $que)
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>Abdullah Ahmad</strong>
+                                    <strong>{{ $que->name }}</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Now Serving</em>
+                                        <em>{{ $que->status }}</em>
                                     </span>
                                 </div>
                                 <div>Arrived 20 minutes ago</div>
                             </a>
                         </li>
                         <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>Siti Nordiyana</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>No 2</em>
-                                    </span>
-                                </div>
-                                <div>Arrived 10 minutes ago</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>Wong Mei Lee</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>No 3</em>
-                                    </span>
-                                </div>
-                                <div>Arrived 3 minutes ago</div>
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                     <!-- /.dropdown-messages -->
                 </li>

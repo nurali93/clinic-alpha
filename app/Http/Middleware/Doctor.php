@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Queue;
+
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
@@ -42,11 +44,14 @@ class Doctor
             }
         } else {
             if($this->auth->user()->doctor){
-                return view('doctor.dashboard');
+                $queue = Queue::all();
+                return view('doctor.dashboard')->with('queue',$queue);
             } else if($this->auth->user()->admin){
-                return view('doctor.dashboard');
+                $queue = Queue::all();
+                return view('doctor.dashboard')->with('queue',$queue);
             } else {
-                return view('staff.dashboard');
+                $queue = Queue::all();
+                return view('staff.dashboard')->with('queue',$queue);
             }
         }
 

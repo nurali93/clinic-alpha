@@ -21,19 +21,12 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-
-                            <a href="#" class="list-group-item">
-                                <span class="badge">20 minutes ago</span>
-                                <i class="fa fa-fw fa-user"></i> Abdullah Ahmad
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">10 minutes ago</span>
-                                <i class="fa fa-fw fa-user"></i> Siti Nordiyana
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <span class="badge">3 minutes ago</span>
-                                <i class="fa fa-fw fa-user"></i> Wong Mei Lee
-                            </a>
+                            @foreach ($queue as $que)
+                                    <a href="#" class="list-group-item">
+                                        <span class="badge">{{ $que->status }}</span>
+                                        <i class="fa fa-fw fa-user"></i> {{ $que->name }}
+                                    </a>
+                            @endforeach
                         </div>
                         <div class="text-right">
                             <a href="#">More <i class="fa fa-arrow-circle-right"></i></a>
