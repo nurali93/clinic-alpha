@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Queue;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Patient;
 
 class DocController extends Controller
 {
@@ -20,4 +23,13 @@ class DocController extends Controller
 	{
 		return view('doctor.patientdb');
 	}
+
+	  public function show($id)
+    {
+        $data = Queue::find($id);
+        $ic = $data->pt_ic;
+        $data2 = Patient::where('pt_ic', $ic)->first();
+
+        return view('doctor.newcase')->with('data',$data)->with('data2',$data2);
+    }
 }

@@ -12,7 +12,7 @@ class CreateQueueTable extends Migration
      */
     public function up()
     {
-        Schema::create('queue', function (Blueprint $table) {
+        Schema::create('queues', function (Blueprint $table) {
             $table->increments('id');
             /*$table->integer('pt_id')->unsigned();
             $table->foreign('pt_id')->references('id')->on('patients')->onDelete('cascade')->onUpdate('cascade');*/

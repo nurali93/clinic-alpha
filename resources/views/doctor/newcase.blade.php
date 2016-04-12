@@ -18,24 +18,27 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <form role="form">
+            <form role="form" action='/record/store' method="POST">
+                {!! csrf_field() !!}
                 <div class="form-group">
                     <div class="col-lg-6">
                         <label>Patient Name</label>
-                        <p class="form-control-static">Abdullah Ahmad</p>
+                        <p class="form-control-static">{{$data->name}}</p>
                         <label>Patient ID</label>
-                        <p class="form-control-static">215</p>
+                        <p class="form-control-static">{{$data->pt_ic}}</p>
+                        {{$data2->id}}
+                        <input name= "patientID" type= "hidden" value="{{$data2->id}}" >
                         <label>Write case</label>
-                        <textarea class="form-control" name="name" placeholder="Enter case" rows="6"></textarea>
+                        <textarea class="form-control" name="diagnosis" placeholder="Enter case" rows="6"></textarea>
                         <label>Treatment</label>
-                        <textarea class="form-control" name="name" placeholder="Enter treatment" rows="3"></textarea>
+                        <textarea class="form-control" name="med" placeholder="Enter treatment" rows="3"></textarea>
                         <div class="form-group">
                         <label>Medicine (CTRL+click to select more than 1)</label>
                         <select multiple="" class="form-control">
                             <option>Paracetamol</option>
-                            <option>Paracetamol</option>
-                            <option>Paracetamol</option>
-                            <option>Paracetamol</option>
+                            <option>Piriton</option>
+                            <option>Antibiotic</option>
+                            <option>Steroid Cream</option>
                         </select>
                         </div>
                         <button type="submit" class="btn btn-success">Submit</button>

@@ -39,9 +39,13 @@ Route::get('/register', function(){
 	return view('user.reg');
 });
 
-Route::get('/doctor', 'DocController@index');
-Route::get('/doctor/newcase', 'DocController@newcase');
+Route::get('doctor/newcase', 'DocController@newcase');
 Route::get('doctor/patient', 'DocController@patientdb');
+Route::resource('doctor','DocController');
+
+Route::controller('record','RecordController');
+
+// Route::get('/doctor/show', 'DocController@show');
 
 Route::get('/staff',['middleware' => 'auth', 'uses' => 'StaffController@index']);
 Route::get('/staff/register',['middleware' => 'auth', 'uses' => 'StaffController@register']);

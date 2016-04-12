@@ -77,7 +77,7 @@ class PatientController extends Controller
         $queue->status = 'Waiting';
         $queue->save();
 
-        return redirect()->action('PatientController@index');
+        return redirect()->action('StaffController@index');
     }
 
     /**

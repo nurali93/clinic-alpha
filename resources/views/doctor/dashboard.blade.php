@@ -22,9 +22,10 @@
                     <div class="panel-body">
                         <div class="list-group">
                         @foreach ($queue as $que)
-                            <a href=""{{action('DocController@newcase')}}"" class="list-group-item">
+                            <a href="{{action('DocController@newcase')}}" class="list-group-item">
                                 <span class="badge">{{ $que->status }}</span>
                                 <i class="fa fa-fw fa-user"></i> {{ $que->name }}
+                                <a href="{{action('DocController@show', $que->id)}}" type="button" class="btn btn-default">Serve</a>
                             </a>
                         @endforeach
                         </div>

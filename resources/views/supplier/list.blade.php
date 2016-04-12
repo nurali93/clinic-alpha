@@ -55,6 +55,10 @@
                     </tbody>
                 </table>
             </div>
+            <div class="row">
+                        <div class="col-md-9"></div>
+                        <a href="{{action('SupplierController@create')}}" class='btn btn-primary'>Add</a>
+                    </div>
         </div>
     </div>
 @stop
