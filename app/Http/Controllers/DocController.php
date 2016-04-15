@@ -13,11 +13,11 @@ class DocController extends Controller
 
 	public function newcase()
 	{
-		return view('doctor.newcase');
+		return view('doctor.newcase')->with('queue',$queue);;
 	}
 
 	public function patientdb()
 	{
-		return view('doctor.patientdb');
+		return view('doctor.patientdb')->with('queue',$queue);;
 	}
 }

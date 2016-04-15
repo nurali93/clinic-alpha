@@ -31,8 +31,14 @@
                             <div class="col-lg-6">
                                 {!! Form::label('', 'IC Number', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_ic', null, ['class' => 'form-control']) !!}
+                                @if($errors->has('pt_ic'))
+                                    {{ $errors->first('pt_ic') }}<br>
+                                @endif
                                 {!! Form::label('', 'Name', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_name', null, ['class' => 'form-control']) !!}
+                                @if($errors->has('pt_name'))
+                                    {{ $errors->first('pt_name') }}<br>
+                                @endif
                                 {!! Form::label('', 'Contact No', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_contactNo', null, ['class' => 'form-control']) !!}
                                 {!! Form::label('pt_dob', 'Date of Birth', ['class' => 'control-label']) !!}
@@ -113,5 +119,6 @@
     </div>
 </div>
                
+
 
 @stop
