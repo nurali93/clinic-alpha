@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Inventory;
+use App\Supplier;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -32,7 +33,8 @@ class InvController extends Controller
      */
     public function create()
     {
-        return view('inventory.form');
+        $supplier = Supplier::all();
+        return view('inventory.form')->with('supplier',$supplier);
     }
 
     /**
@@ -98,7 +100,8 @@ class InvController extends Controller
     public function edit($id)
     {
         $data['inventory'] = Inventory::find($id);
-        return view('inventory.edit',$data);
+        $supplier = Supplier::all();
+        return view('inventory.edit',$data)->with('supplier',$supplier);
     }
 
     /**

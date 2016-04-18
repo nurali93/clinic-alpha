@@ -26,7 +26,8 @@ class PatientController extends Controller
     {
         //$data['patient'] = patient::all();
         $patient = Patient::all();
-        return view('staff.dashboard',['patient' => $patient])->with('queue',$queue);
+        $queue = Queue::all();
+        return view('patient.list',['patient' => $patient])->with('queue',$queue);
     }
 
     /**
@@ -57,7 +58,6 @@ class PatientController extends Controller
         $rules = [
                     'pt_ic'=>'required|unique:patients',
                     'pt_name'=>'required:patients',
-                    'pt_contactNo'=>'required:patients',
         ];
 
         $validation = Validator::make($request->all(),$rules,$messages);
@@ -121,7 +121,8 @@ class PatientController extends Controller
     public function edit($id)
     {
         $data['patient'] = Patient::find($id);
-        return view('patient.edit',$data);
+        $panel = Panel::all();
+        return view('patient.edit',$data)->with('panel',$panel);
     }
 
     /**

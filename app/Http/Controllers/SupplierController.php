@@ -9,6 +9,8 @@ use App\Supplier;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Session;
+
 class SupplierController extends Controller
 {
     /**
@@ -113,6 +115,9 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $supplier = Supplier::find($id);
+        $supplier->delete();
+        Session::flash('flash_message', 'Successfully deleted!');
+        return redirect()->action('SupplierController@index');
     }
 }

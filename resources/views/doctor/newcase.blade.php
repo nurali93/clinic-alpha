@@ -24,23 +24,25 @@
                     <div class="col-lg-6">
                         <label>Patient Name</label>
                         <p class="form-control-static">{{$data->name}}</p>
-                        <label>Patient ID</label>
+                        <label>Patient Identification Card</label>
                         <p class="form-control-static">{{$data->pt_ic}}</p>
-                        {{$data2->id}}
-                        <input name= "patientID" type= "hidden" value="{{$data2->id}}" >
+                        <label>Patient ID</label>
+                        <p class="form-control-static">{{$data2->id}}</p>
+                        <input name= "patientID" type="hidden" value="{{$data2->id}}" >
+                        
                         <label>Write case</label>
                         <textarea class="form-control" name="diagnosis" placeholder="Enter case" rows="6"></textarea>
+                        
                         <label>Treatment</label>
                         <textarea class="form-control" name="med" placeholder="Enter treatment" rows="3"></textarea>
-                        <div class="form-group">
+
                         <label>Medicine (CTRL+click to select more than 1)</label>
-                        <select multiple="" class="form-control">
-                            <option>Paracetamol</option>
-                            <option>Piriton</option>
-                            <option>Antibiotic</option>
-                            <option>Steroid Cream</option>
+                        <select multiple name='drug_name' class='form-control'>
+                            @foreach ($inventory as $inv)
+                            <option>{{ $inv->drug_name }}</option>
+                            @endforeach
                         </select>
-                        </div>
+                        
                         <button type="submit" class="btn btn-success">Submit</button>
                     </div>
                 </div>

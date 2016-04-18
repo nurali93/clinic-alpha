@@ -34,34 +34,45 @@
                                 @if($errors->has('pt_ic'))
                                     {{ $errors->first('pt_ic') }}<br>
                                 @endif
+
                                 {!! Form::label('', 'Name', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_name', null, ['class' => 'form-control']) !!}
                                 @if($errors->has('pt_name'))
                                     {{ $errors->first('pt_name') }}<br>
                                 @endif
+
                                 {!! Form::label('', 'Contact No', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_contactNo', null, ['class' => 'form-control']) !!}
+                                
                                 {!! Form::label('pt_dob', 'Date of Birth', ['class' => 'control-label']) !!}
                                 {!! Form::input('date','pt_dob', null, ['class' => 'form-control']) !!}<br>
+                                
                                 {!! Form::label('', 'Gender', ['class' => 'control-label']) !!}<br>
                                 {!! Form::radio('pt_gender', 'Male', ['class' => 'form-control']) !!} Male
                                 {!! Form::radio('pt_gender', 'Female', ['class' => 'form-control']) !!} Female<br>
                                 </div>
                                 <div class="col-lg-6">
+                                
                                 {!! Form::label('', 'Insurance Panel', ['class' => 'control-label']) !!}
-                                <select name='pt_panel' class='form-control'>
-                                    @foreach ($panel as $pan)
-                                    <option>{{ $pan->p_company }}</option>
-                                    @endforeach
-                                </select>
+                                    <select name='pt_panel' class='form-control'>
+                                        <option></option>
+                                        @foreach ($panel as $pan)
+                                        <option>{{ $pan->p_company }}</option>
+                                        @endforeach
+                                    </select>
+                                
                                 {!! Form::label('', 'Race', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_race', null, ['class' => 'form-control']) !!}
+                                
                                 {!! Form::label('', 'Address', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_address', null, ['class' => 'form-control']) !!}
+                                
                                 {!! Form::label('', 'Postcode', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_postcode', null, ['class' => 'form-control']) !!}
+                                
                                 {!! Form::label('', 'City', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_city', null, ['class' => 'form-control']) !!}
+                                
                                 {!! Form::label('', 'State', ['class' => 'control-label']) !!}
                                 {!! Form::text('pt_state', null, ['class' => 'form-control']) !!}
                             </div>
