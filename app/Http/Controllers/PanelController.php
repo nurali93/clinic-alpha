@@ -42,7 +42,6 @@ class PanelController extends Controller
     {
 
         $panel = new Panel;
-        $panel->p_code = $request->input('p_code');
         $panel->p_company = $request->input('p_company');
         $panel->p_contactname = $request->input('p_contactname');
         $panel->p_telno =  $request->input('p_telno');

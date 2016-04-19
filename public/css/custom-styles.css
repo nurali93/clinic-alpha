@@ -28,7 +28,7 @@ body {
     margin:10px 20px 10px 0px;
     background-color:transparent;
     padding:10px;
-    min-height:1200px;
+    min-height:500px;
 }
 
 .text-center {
@@ -391,10 +391,10 @@ margin:0px;
 }
 .top-navbar .navbar-brand {
 color: #fff;
-width: 260px;
+width: 220px;
 text-align: left;
 height: 60px;
-font-size: 24px;
+font-size: 20px;
 font-weight: 700;
 text-transform: uppercase;
 line-height: 30px;
@@ -589,16 +589,16 @@ line-height: 1.428571429;
  
  @media(min-width:768px) {
      #page-wrapper{
-               margin: 0 0 0 260px;
-        padding: 15px 30px;
+               margin: 0 0 0 220px;
+        padding: 15px 15px;
         
-               min-height: 1200px;
+               min-height: 700px;
 		
     }
 	
 	
     .navbar-side {
-        width: 260px;
+        width: 220px;
         z-index: 1;
     }
 

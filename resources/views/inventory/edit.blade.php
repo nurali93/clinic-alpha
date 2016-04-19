@@ -23,10 +23,10 @@
                         {!! Form::text('drug_precaution', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Date of Purchase', ['class' => 'control-label']) !!}
                         {!! Form::input('date','dateOfPurchase', null, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="col-lg-6">
                         {!! Form::label('', 'Date of Expiry', ['class' => 'control-label']) !!}
                         {!! Form::input('date','dateOfExpiry', null, ['class' => 'form-control']) !!}
+                        </div>
+                        <div class="col-lg-6">
                         {!! Form::label('', 'Drug Supplier', ['class' => 'control-label']) !!}
                             <select name='drug_supplier' class='form-control'>
                                 @foreach ($supplier as $supp)

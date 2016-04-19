@@ -10,8 +10,8 @@
         <div class="col-lg-12">
                 <div class="form-group">
                     <div class="col-lg-6">
-                         {!! Form::model($supplier, ['method' => 'PATCH','route' => ['supplier.update', $supplier->id]]) !!}
-                        {!! Form::label('', 'Suppler Name', ['class' => 'control-label']) !!}
+                        {!! Form::model($supplier, ['method' => 'PATCH','route' => ['supplier.update', $supplier->id]]) !!}
+                        {!! Form::label('', 'Supplier Name', ['class' => 'control-label']) !!}
                         {!! Form::text('supp_name', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Contact Person', ['class' => 'control-label']) !!}
                         {!! Form::text('supp_contactName', null, ['class' => 'form-control']) !!}

@@ -40,3 +40,6 @@ $('option').mousedown(function(e) {
     return false;
 }); 
 
+$('#tableA').dataTable();
+
+

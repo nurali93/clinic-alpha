@@ -10,6 +10,9 @@
     	<link href="{{ asset('css/custom-styles.css') }}" rel="stylesheet" />
     	<!-- Google Fonts-->
    		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   		 <!-- TABLE STYLES-->
+    	<link href="{{ asset('js/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet" />
+
 	</head>
 	<body>
 		@include('header')
@@ -40,6 +43,10 @@
 	    <script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
 	    <!-- Metis Menu Js -->
 	    <script src="{{ asset('js/jquery.metisMenu.js') }}" type="text/javascript"></script>
+	    <!-- DATA TABLE SCRIPTS -->
+    	<script src="{{ asset('js/dataTables/jquery.dataTables.js') }}"></script>
+    	<script src="{{ asset('js/dataTables/dataTables.bootstrap.js') }}"></script>
+
 	      <!-- Custom Js -->
 	    <script src="{{ asset('js/custom-scripts.js') }}" type="text/javascript"></script>
 	</body>
