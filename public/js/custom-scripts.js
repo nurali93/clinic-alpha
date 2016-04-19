@@ -42,4 +42,7 @@ $('option').mousedown(function(e) {
 
 $('#tableA').dataTable();
 
+$("select").multipleSelect({
+            filter: true
+        });
 

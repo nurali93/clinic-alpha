@@ -37,7 +37,7 @@
                         <textarea class="form-control" name="med" placeholder="Enter treatment" rows="3"></textarea>
 
                         <label>Medicine (CTRL+click to select more than 1)</label>
-                        <select multiple name='drug_name' class='form-control'>
+                        <select multiple="multiple" name='drug_name' class='form-control'>
                             @foreach ($inventory as $inv)
                             <option>{{ $inv->drug_name }}</option>
                             @endforeach
