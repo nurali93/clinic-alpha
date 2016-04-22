@@ -27,9 +27,11 @@ class DocController extends Controller
 	  public function show($id)
     {
         $data = Queue::find($id);
+        $data->status = 'consulting';
+        $data->save();
         $ic = $data->pt_ic;
         $data2 = Patient::where('pt_ic', $ic)->first();
-
+ 
         return view('doctor.newcase')->with('data',$data)->with('data2',$data2);
     }
 }
