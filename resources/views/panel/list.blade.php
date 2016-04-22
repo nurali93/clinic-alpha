@@ -6,18 +6,14 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            List of Panel
+            <h1>List of Panel</h1>
         </div> 
+        
         <div class="panel-body">
-            <div class="input-group">
-                <span class="input-group-addon">Filter</span>
-                <input id="filter" type="text" class="form-control" placeholder="Type here..."><br>
-            </div>
             <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
+                <table class="table table-striped table-bordered table-hover" id="tableA">
                     <thead>
                         <tr>
-                            <th>Panel ID</th>
                             <th>Panel Name</th>
                             <th>Contact Person</th>
                             <th>Contact No</th>
@@ -28,13 +24,13 @@
                             <th>City</th>
                             <th>Postcode</th>
                             <th>State</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
-
-                    <tbody class="searchable">
+                    <tbody>
                         @foreach ($panel as $pan)
                         <tr>
-                            <td>{{ $pan->p_code }}</td>
                             <td>{{ $pan->p_company }}</td>
                             <td>{{ $pan->p_contactname }}</td>
                             <td>{{ $pan->p_telno }}</td>
@@ -45,20 +41,27 @@
                             <td>{{ $pan->p_city }}</td>
                             <td>{{ $pan->p_postcode }}</td>
                             <td>{{ $pan->p_state }}</td>
-                            <td><a href="{{action('PanelController@edit', $pan->id)}}" class="btn btn-warning">Edit</a></td>
+                            <td>                            
+                                <a href="{{action('PanelController@edit', $pan->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                            </td>
                             <td>
                                 {!! Form::open(['method' => 'DELETE','route' => ['panel.destroy', $pan->id]]) !!}
-                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                {!! Form::close() !!}
+                                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                                {!! Form::close() !!}    
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+
             <div class="row">
-                <a href="{{action('PanelController@create')}}" class='btn btn-primary'>Add</a>
+                <br>
+                <div class="col-md-12"> 
+                    <a href="{{action('PanelController@create')}}" class='btn btn-primary'>Add</a>
+                </div>
             </div>
+
         </div>
     </div>
 @stop

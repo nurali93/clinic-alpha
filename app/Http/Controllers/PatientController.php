@@ -11,6 +11,9 @@ use App\Panel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Validator;
+use Session;
+
 
 class PatientController extends Controller
 {
@@ -23,7 +26,8 @@ class PatientController extends Controller
     {
         //$data['patient'] = patient::all();
         $patient = Patient::all();
-        return view('patient.list',['patient' => $patient]);
+        $queue = Queue::all();
+        return view('patient.list',['patient' => $patient])->with('queue',$queue);
     }
 
     /**
@@ -45,6 +49,23 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
+        //data validation
+
+        $messages = ['required' => 'This field MUST be filled.',
+                     'unique' => 'The data entered EXISTED.',
+        ];
+
+        $rules = [
+                    'pt_ic'=>'required|unique:patients',
+                    'pt_name'=>'required:patients',
+        ];
+
+        $validation = Validator::make($request->all(),$rules,$messages);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput($request->all());
+        }
+
         $pIc = $request->input('pt_ic');
         $pName = $request->input('pt_name');
         $pCont = $request->input('pt_contactNo');
@@ -100,7 +121,8 @@ class PatientController extends Controller
     public function edit($id)
     {
         $data['patient'] = Patient::find($id);
-        return view('patient.edit',$data);
+        $panel = Panel::all();
+        return view('patient.edit',$data)->with('panel',$panel);
     }
 
     /**

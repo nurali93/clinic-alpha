@@ -11,6 +11,28 @@
 
             <ul class="nav navbar-top-links navbar-right">
 
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-users fa-fw"></i>Queue <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        @foreach ($queue as $que)
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>{{ $que->name }}</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>{{ $que->status }}</em>
+                                    </span>
+                                </div>
+                                <!-- <div>Arrived 20 minutes ago</div> -->
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        @endforeach
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
                 <!-- /.dropdown -->
 
                 <li class="dropdown">

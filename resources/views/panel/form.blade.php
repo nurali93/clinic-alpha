@@ -11,8 +11,6 @@
                 <div class="form-group">
                     <div class="col-lg-6">
                         {!! Form::open(array('action' => 'PanelController@store')) !!}
-                        {!! Form::label('', 'Panel ID', ['class' => 'control-label']) !!}
-                        {!! Form::text('p_code', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Panel Name', ['class' => 'control-label']) !!}
                         {!! Form::text('p_company', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Contact Person', ['class' => 'control-label']) !!}

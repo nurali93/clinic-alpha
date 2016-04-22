@@ -1,10 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Queue;
+
 use Illuminate\Http\Request;
-use App\Http\Requests;
+
+use App\Queue;
 use App\Patient;
+use App\Inventory;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
 
 class DocController extends Controller
 {
@@ -16,12 +22,14 @@ class DocController extends Controller
 
 	public function newcase()
 	{
-		return view('doctor.newcase');
+		$queue = Queue::all();
+		return view('doctor.newcase')->with('queue',$queue);;
 	}
 
 	public function patientdb()
 	{
-		return view('doctor.patientdb');
+		$queue = Queue::all();
+		return view('doctor.patientdb')->with('queue',$queue);;
 	}
 
 	  public function show($id)
@@ -31,7 +39,10 @@ class DocController extends Controller
         $data->save();
         $ic = $data->pt_ic;
         $data2 = Patient::where('pt_ic', $ic)->first();
- 
-        return view('doctor.newcase')->with('data',$data)->with('data2',$data2);
+
+        $inventory = Inventory::all();
+
+        return view('doctor.newcase')->with('data',$data)->with('data2',$data2)->with('inventory',$inventory);
+
     }
 }

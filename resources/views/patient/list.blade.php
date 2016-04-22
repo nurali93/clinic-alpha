@@ -10,10 +10,9 @@
         </div> 
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
+                <table class="table table-striped table-bordered table-hover" id="tableA">
                     <thead>
                         <tr>
-                            <th>Registration No</th>
                             <th>IC</th>
                             <th>Name</th>
                             <th>Contact No</th>
@@ -25,12 +24,13 @@
                             <th>Postcode</th>
                             <th>City</th>
                             <th>State</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($patient as $pat)
                         <tr>
-                            <td>{{ $pat->pt_regno }}</td>
                             <td>{{ $pat->pt_ic }}</td>
                             <td>{{ $pat->pt_name }}</td>
                             <td>{{ $pat->pt_contactNo }}</td>
