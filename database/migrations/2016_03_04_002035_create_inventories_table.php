@@ -27,9 +27,8 @@ class CreateInventoriesTable extends Migration
             $table->string('supp_id');
             $table->string('intakeTime');
             $table->string('frequency');
-            $table->integer('dispenseQuantity');
             $table->float('spu');
-            $table->integer('unitsInPack');
+            $table->integer('unitsOnHand');
             $table->engine = 'InnoDB';
             $table->timestamps();
         });

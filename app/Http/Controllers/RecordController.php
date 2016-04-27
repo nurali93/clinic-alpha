@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Queue;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Record;
@@ -38,10 +38,16 @@ class RecordController extends Controller
      */
     public function postStore(Request $request){
         $record = new Record;
-        $record->pt_id = $request->input("patientID");
+        $id = $request->input("patientID");
+        $record->pt_id = $id;
         $record->diagnosis = $request->input("diagnosis");
-        $record->pres_med = $request->input("med");
+        $record->treatment = $request->input("treatment");
+        $record->pres_med = $request->input("drug_name");
         $record->save();
+
+        $state = Queue::find($id); //retrieve whole row
+        $state->status ='Payment';
+        $state->save();
 
         return redirect()->action('DocController@index');
     }
