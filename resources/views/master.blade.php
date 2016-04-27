@@ -13,7 +13,7 @@
    		<!-- TABLE STYLES-->
     	<link href="{{ asset('js/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet" />
     	<!-- Multiple Selection-->
-    	<link href="{{ asset('css/multiple-select.css') }}" rel="stylesheet" />
+    	<link href="{{ asset('css/bootstrap-select.min.css') }}" rel="stylesheet" />
 
 	</head>
 	<body>
@@ -49,7 +49,7 @@
     	<script src="{{ asset('js/dataTables/jquery.dataTables.js') }}"></script>
     	<script src="{{ asset('js/dataTables/dataTables.bootstrap.js') }}"></script>
     	<!-- Multiple select -->
-	    <script src="{{ asset('js/multiple-select.js') }}" type="text/javascript"></script>
+	    <script src="{{ asset('js/bootstrap-select.min.js') }}" type="text/javascript"></script>
 
 	      <!-- Custom Js -->
 	    <script src="{{ asset('js/custom-scripts.js') }}" type="text/javascript"></script>

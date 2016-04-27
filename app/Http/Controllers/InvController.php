@@ -60,6 +60,9 @@ class InvController extends Controller
         $dSpu = $request->input('spu');
         $dUnitPck = $request->input('unitsInPack');
 
+        // $d_data = Supplier::find($dSupp);
+        // $supp_id = $d_data->id;
+
         $inventory = new Inventory;
         $inventory->drug_name = $dName;
         $inventory->drug_lowlimit = $dLow;
