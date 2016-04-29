@@ -6,51 +6,41 @@
 
 <div class="panel panel-default">
 
-    <ul class="nav nav-tabs">
+    <!-- <ul class="nav nav-tabs">
         <li class="active"><a href="#home" data-toggle="tab">Dispense</a>
         </li>
         <li class=""><a href="#profile" data-toggle="tab">Sales report</a>
         </li>
-        <li class=""><a href="#messages" data-toggle="tab"></a>
-        </li>
-    </ul>
+    </ul> -->
 
     <div class="panel-heading">
-        Dispensary
+        <h1>Dispensary</h1>
     </div> 
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-6">
                 <form role="form">
-                    <div class="form-group">
-                        <label>Patient Name</label>
-                        <select class="form-control">
-                            <option>Abdullah Ahmad</option>
-                            <option>Siti Nordiyana</option>
-                            <option>Wong Mei Lee</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Treatment</label>
-                        <p class="form-control-static">Standard Checkup</p>
-                        <label>Prescribe Medicine</label>
-                        <p class="form-control-static">Paracetamol</p>
-                        <label>Total</label>
-                        <p class="form-control-static">RM 10.00</p>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>Payment</label>
-                        <select class="form-control">
-                            <option>Cash</option>
-                            <option>Credit</option>
-                            <option>Panel</option>
-                        </select>
-                    </div>
-                    
+                    <div class="col-lg-6 form-group">
+                    <label>Patient Name</label>
+                    <p>Patient Name</p>
+                    <label>Charges & Medicine</label>
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <th>No</th>
+                            <th>Charges</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                        </thead>
+                        <tbody>
+                            <td></td>
+                            <td>Consultation fee</td>
+                            <td></td>
+                            <td></td>
+                        </tbody>
+                    </table>
+                    <br><br>
                     <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -6,8 +6,8 @@
 
 <div class="panel panel-body">
     <div class="panel-heading">
-        <h4><label>Patient Name</label</h4>
-        <h5>&nbsp{{ $data->name }}</h5><br>
+        <h4><label>Patient File</label</h4>
+        <h5>{{ $data->name }}</h5>
     </div>
 
     <ul class="nav nav-tabs">
@@ -17,8 +17,6 @@
             </li>
             <li class=""><a href="#history" data-toggle="tab">Patient History</a>
             </li>
-            <!-- <li class=""><a href="#settings" data-toggle="tab">Empty</a>
-            </li> -->
         </ul>
 
 
@@ -40,14 +38,40 @@
                                     <label>Treatment</label>
                                     <textarea class="form-control" name="treatment" placeholder="Enter treatment" rows="3"></textarea>
 
-                                    <label>Medicine</label>
+                                    <label>Prescription</label>
                                         <br>
-                                        <select class="selectpicker" data-live-search="true" name='drug_name' multiple data-actions-box="true">
+                                        <!-- <select class="selectpicker" data-live-search="true" name='drug_name[]' multiple data-actions-box="true">
                                             @foreach ($inventory as $inv)
                                                 <option>{{ $inv->drug_name }}</option>
                                             @endforeach
                                         </select>
-                                        <br>
+                                        <br> -->
+                                        <div>
+                                            <select class="selectpicker" data-live-search="true">
+                                                @foreach ($inventory as $inv)
+                                                    <option>{{ $inv->drug_name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <!-- test -->
+                                        <div class="row">
+
+                                        <div class="input_fields_wrap">
+                                            <button class="add_field_button">Add More Fields</button>
+                                            <div>
+                                                <select class="selectpicker" data-live-search="true" name="drug_name_1">
+                                                    @foreach ($inventory as $inv)
+                                                        <option>{{ $inv->drug_name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <input type="text" name="mytext_1">
+                                            </div>
+                                        </div>
+
+                                        </div>
+                                        <!-- test -->
+
                                         <br>
                                     <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
@@ -58,6 +82,7 @@
                     <!-- /.col-lg-6 (nested) -->
                 </div>
         </div>
+
         <div class="tab-pane fade" id="details">
             <div class="row">
                 <div class="col-lg-12">

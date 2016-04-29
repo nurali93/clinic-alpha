@@ -37,12 +37,10 @@
                         {!! Form::text('intakeTime', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Frequency', ['class' => 'control-label']) !!}
                         {!! Form::text('frequency', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('', 'Dispense Quantity', ['class' => 'control-label']) !!}
-                        {!! Form::text('dispenseQuantity', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Drug SPU', ['class' => 'control-label']) !!}
                         {!! Form::text('spu', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('', 'Units per Pack', ['class' => 'control-label']) !!}
-                        {!! Form::text('unitsInPack', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('', 'Units on Hand', ['class' => 'control-label']) !!}
+                        {!! Form::text('unitsOnHand', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>    
                   

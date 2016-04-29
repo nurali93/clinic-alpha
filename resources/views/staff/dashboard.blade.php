@@ -22,10 +22,17 @@
                     <div class="panel-body">
                         <div class="list-group">
                             @foreach ($queue as $que)
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">{{ $que->status }}</span>
-                                        <i class="fa fa-fw fa-user"></i> {{ $que->name }}
-                                    </a>
+                                    @if($que->status == "Payment")
+                                        <a href="{{action('StaffController@dispense')}}" class="list-group-item">
+                                            <span class="badge">{{ $que->status }}</span>
+                                            <i class="fa fa-fw fa-user"></i> {{ $que->name }}
+                                        </a>
+                                    @else
+                                        <a href="#" class="list-group-item">
+                                            <span class="badge">{{ $que->status }}</span>
+                                            <i class="fa fa-fw fa-user"></i> {{ $que->name }}
+                                        </a>
+                                    @endif
                             @endforeach
                         </div>
                         <div class="text-right">

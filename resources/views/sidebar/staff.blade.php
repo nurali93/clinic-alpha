@@ -12,7 +12,7 @@
                 <a href="{{action('PanelController@index')}}"><i class="fa fa-money"></i> Panel List</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-qrcode"></i> Dispensary</a>
+                <a href="{{action('StaffController@dispense')}}"><i class="fa fa-qrcode"></i> Dispensary</a>
             </li>
             <li>
                 <a href="{{action('InvController@index')}}"><i class="fa fa-archive"></i> Inventory</a>

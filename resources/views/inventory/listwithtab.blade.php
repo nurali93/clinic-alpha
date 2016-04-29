@@ -44,9 +44,8 @@
                                     <th>Supplier</th>
                                     <th>Intake Time</th>
                                     <th>Frequency</th>
-                                    <th>Dispense Quantity</th>
                                     <th>SPU</th>
-                                    <th>Units per Pack</th>
+                                    <th>Units on Hand</th>
                                 </tr>
                             </thead>
                             <tbody class="searchable">
@@ -62,9 +61,8 @@
                                     <td>{{ $inv->drug_supplier }}</td>
                                     <td>{{ $inv->intakeTime }}</td>
                                     <td>{{ $inv->frequency }}</td>
-                                    <td>{{ $inv->dispenseQuantity }}</td>
                                     <td>{{ $inv->spu }}</td>
-                                    <td>{{ $inv->unitsInPack }}</td>
+                                    <td>{{ $inv->unitsOnHand }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

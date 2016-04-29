@@ -31,10 +31,6 @@ Route::get('/', ['middleware' => 'doctor', function () {
     
 }]);
 
-Route::get('/dispensary', function(){
-	return view('staff.dispensary');
-});
-
 Route::get('/register', function(){
 	return view('user.reg');
 });

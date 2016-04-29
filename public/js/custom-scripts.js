@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         })
 
-        mainApp.initFunction(); 
+        //mainApp.initFunction(); 
         $("#sideNav").click(function(){
             if($(this).hasClass('closed')){
                 $('.navbar-side').animate({left: '0px'});
@@ -27,9 +27,6 @@ $(document).ready(function () {
             }
         });
 
-        
-        
-
     }(jQuery));
 
 });
@@ -41,10 +38,4 @@ $('option').mousedown(function(e) {
 }); 
 
 $('#tableA').dataTable();
-
-$("select").multipleSelect({
-            filter: true,
-            multiple: true,
-            keepOpen: true
-        });
 

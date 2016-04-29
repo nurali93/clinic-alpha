@@ -50,8 +50,12 @@
     	<script src="{{ asset('js/dataTables/dataTables.bootstrap.js') }}"></script>
     	<!-- Multiple select -->
 	    <script src="{{ asset('js/bootstrap-select.min.js') }}" type="text/javascript"></script>
+	      <!-- Add more -->
+	    <script src="{{ asset('js/addMore.js') }}" type="text/javascript"></script>
 
 	      <!-- Custom Js -->
 	    <script src="{{ asset('js/custom-scripts.js') }}" type="text/javascript"></script>
+
+
 	</body>
 </html>

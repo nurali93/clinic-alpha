@@ -56,9 +56,8 @@ class InvController extends Controller
         $dSupp = $request->input('drug_supplier');
         $dInt = $request->input('intakeTime');
         $dFreq = $request->input('frequency');
-        $dDispQtt = $request->input('dispenseQuantity');
         $dSpu = $request->input('spu');
-        $dUnitPck = $request->input('unitsInPack');
+        $dUnitHnd = $request->input('unitsOnHand');
 
         // $d_data = Supplier::find($dSupp);
         // $supp_id = $d_data->id;
@@ -74,9 +73,8 @@ class InvController extends Controller
         $inventory->drug_supplier = $dSupp;
         $inventory->intakeTime = $dInt;
         $inventory->frequency = $dFreq;
-        $inventory->dispenseQuantity = $dDispQtt;
         $inventory->spu = $dSpu;
-        $inventory->unitsInPack = $dUnitPck;
+        $inventory->unitsOnHand = $dUnitHnd;
         $inventory->save();
         
         return redirect()->action('InvController@index');
@@ -126,9 +124,8 @@ class InvController extends Controller
         $dSupp = $request->input('drug_supplier');
         $dInt = $request->input('intakeTime');
         $dFreq = $request->input('frequency');
-        $dDispQtt = $request->input('dispenseQuantity');
         $dSpu = $request->input('spu');
-        $dUnitPck = $request->input('unitsInPack');
+        $dUnitHnd = $request->input('unitsOnHand');
 
 
         $inventory = Inventory::find($id);
@@ -142,9 +139,8 @@ class InvController extends Controller
         $inventory->drug_supplier = $dSupp;
         $inventory->intakeTime = $dInt;
         $inventory->frequency = $dFreq;
-        $inventory->dispenseQuantity = $dDispQtt;
         $inventory->spu = $dSpu;
-        $inventory->unitsInPack = $dUnitPck;
+        $inventory->unitsOnHand = $dUnitHnd;
         $inventory->save();
         
         return redirect()->action('InvController@index');

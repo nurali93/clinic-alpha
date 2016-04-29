@@ -23,13 +23,13 @@ class DocController extends Controller
 	public function newcase()
 	{
 		$queue = Queue::all();
-		return view('doctor.newcase')->with('queue',$queue);;
+		return view('doctor.newcase');
 	}
 
 	public function patientdb()
 	{
 		$queue = Queue::all();
-		return view('doctor.patientdb')->with('queue',$queue);;
+		return view('doctor.patientdb');
 	}
 
 	  public function show($id)

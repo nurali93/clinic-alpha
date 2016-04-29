@@ -24,38 +24,61 @@
                             <th>Supplier</th>
                             <th>Intake Time</th>
                             <th>Frequency</th>
-                            <th>Dispense Quantity</th>
                             <th>SPU</th>
-                            <th>Units per Pack</th>
+                            <th>Units on Hand</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody class="searchable">
                         @foreach ($inventory as $inv)
-                        <tr>
-                            <td>{{ $inv->drug_name }}</td>
-                            <td>{{ $inv->drug_lowlimit }}</td>
-                            <td>{{ $inv->drug_type }}</td>
-                            <td>{{ $inv->drug_remarks }}</td>
-                            <td>{{ $inv->drug_precaution }}</td>
-                            <td>{{ $inv->dateOfPurchase }}</td>
-                            <td>{{ $inv->dateOfExpiry }}</td>
-                            <td>{{ $inv->drug_supplier }}</td>
-                            <td>{{ $inv->intakeTime }}</td>
-                            <td>{{ $inv->frequency }}</td>
-                            <td>{{ $inv->dispenseQuantity }}</td>
-                            <td>{{ $inv->spu }}</td>
-                            <td>{{ $inv->unitsInPack }}</td>
-                            <td>
-                                    <a href="{{action('InvController@edit', $inv->id)}}" class="btn btn-warning btn-sm">Edit</a>
-                            </td>
-                            <td>
-                                    {!! Form::open(['method' => 'DELETE','route' => ['inventory.destroy', $inv->id]]) !!}
-                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                                    {!! Form::close() !!}
-                            </td>
-                        </tr>
+                            @if($inv->unitsOnHand <= $inv->drug_lowlimit)
+                                <tr class="danger">
+                                    <td>{{ $inv->drug_name }}</td>
+                                    <td>{{ $inv->drug_lowlimit }}</td>
+                                    <td>{{ $inv->drug_type }}</td>
+                                    <td>{{ $inv->drug_remarks }}</td>
+                                    <td>{{ $inv->drug_precaution }}</td>
+                                    <td>{{ $inv->dateOfPurchase }}</td>
+                                    <td>{{ $inv->dateOfExpiry }}</td>
+                                    <td>{{ $inv->drug_supplier }}</td>
+                                    <td>{{ $inv->intakeTime }}</td>
+                                    <td>{{ $inv->frequency }}</td>
+                                    <td>{{ $inv->spu }}</td>
+                                    <td>{{ $inv->unitsOnHand }}</td>
+                                    <td>
+                                            <a href="{{action('InvController@edit', $inv->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                                    </td>
+                                    <td>
+                                            {!! Form::open(['method' => 'DELETE','route' => ['inventory.destroy', $inv->id]]) !!}
+                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                                            {!! Form::close() !!}
+                                    </td>
+                                </tr>
+                            @else
+                                <tr>
+                                    <td>{{ $inv->drug_name }}</td>
+                                    <td>{{ $inv->drug_lowlimit }}</td>
+                                    <td>{{ $inv->drug_type }}</td>
+                                    <td>{{ $inv->drug_remarks }}</td>
+                                    <td>{{ $inv->drug_precaution }}</td>
+                                    <td>{{ $inv->dateOfPurchase }}</td>
+                                    <td>{{ $inv->dateOfExpiry }}</td>
+                                    <td>{{ $inv->drug_supplier }}</td>
+                                    <td>{{ $inv->intakeTime }}</td>
+                                    <td>{{ $inv->frequency }}</td>
+                                    <td>{{ $inv->spu }}</td>
+                                    <td>{{ $inv->unitsOnHand }}</td>
+                                    <td>
+                                            <a href="{{action('InvController@edit', $inv->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                                    </td>
+                                    <td>
+                                            {!! Form::open(['method' => 'DELETE','route' => ['inventory.destroy', $inv->id]]) !!}
+                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                                            {!! Form::close() !!}
+                                    </td>
+                                </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>
