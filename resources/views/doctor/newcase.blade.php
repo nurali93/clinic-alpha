@@ -79,7 +79,9 @@
                                                                     + '@foreach ($inventory as $inv)<option>{{ $inv->drug_name }}</option>@endforeach</select>'
                                                                     + '<input type="number" class="form-control" name="drug_' + x + '_qtt" placeholder="Quantity" min="1" max="5"></input>'
                                                                     + '<a href="#" class="remove_field">Remove</a>'
+                                                                    + '<input name= "xy" type="hidden" value='+x+' >'
                                                                     + '</div>'); //add input box
+
                                                                 $(".selectpicker").selectpicker();
 
                                                             }

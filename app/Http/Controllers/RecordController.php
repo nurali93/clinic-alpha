@@ -42,7 +42,15 @@ class RecordController extends Controller
         $record->pt_id = $id;
         $record->diagnosis = $request->input("diagnosis");
         $record->treatment = $request->input("treatment");
-        $record->pres_med = $request->input("drug_name");
+      
+        $fullpres = "";
+        $val = $request->input("xy");
+        for($count=1; $count< $val+1; $count++ ){
+            $fullpres .= $request->input("drug_".$count);
+            $fullpres .= $request->input("drug_".$count."_qtt");
+            $fullpres .= "#";
+        }
+        $record->pres_med = $fullpres;
         $record->save();
 
         $state = Queue::find($id); //retrieve whole row
