@@ -30,7 +30,7 @@
                                 <div class="col-lg-6">
                                     <label>Patient ID</label>
                                     <p class="form-control-static">{{$data2->id}}</p>
-                                    <input name= "patientID" type="hidden" value="{{$data2->id}}" >
+                                    <input name= "patientID" type="hidden" value="{{ $data2->id }}" >
                                     
                                     <label>Write case</label>
                                     <textarea class="form-control" name="diagnosis" placeholder="Enter case" rows="6"></textarea>
@@ -38,42 +38,59 @@
                                     <label>Treatment</label>
                                     <textarea class="form-control" name="treatment" placeholder="Enter treatment" rows="3"></textarea>
 
+                                    <br>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+
+                                    </div>
+                                    <div class="col-lg-6">
+
                                     <label>Prescription</label>
-                                        <br>
+                                    <a href="#" class="add_field_button">Add Medicine</a>
                                         <!-- <select class="selectpicker" data-live-search="true" name='drug_name[]' multiple data-actions-box="true">
                                             @foreach ($inventory as $inv)
                                                 <option>{{ $inv->drug_name }}</option>
                                             @endforeach
                                         </select>
                                         <br> -->
-                                        <div>
-                                            <select class="selectpicker" data-live-search="true">
+                                        <!-- <div>
+                                            <select class="selectpicker form-control" data-live-search="true" name="drug_1">
                                                 @foreach ($inventory as $inv)
                                                     <option>{{ $inv->drug_name }}</option>
                                                 @endforeach
                                             </select>
-                                        </div>
-
-                                        <!-- test -->
-                                        <div class="row">
+                                            <input type="number" class="form-control" name="drug_1_qtt" placeholder="Quantity" min="1" max="5"></input>
+                                        </div> -->
 
                                         <div class="input_fields_wrap">
-                                            <button class="add_field_button">Add More Fields</button>
+                                            
                                             <div>
-                                                <select class="selectpicker" data-live-search="true" name="drug_name_1">
-                                                    @foreach ($inventory as $inv)
-                                                        <option>{{ $inv->drug_name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <input type="text" name="mytext_1">
+                                                <script type="text/javascript">
+                                                        var max_fields      = 5; //maximum input boxes allowed
+                                                        var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+                                                        var add_button      = $(".add_field_button"); //Add button ID
+                                                        
+                                                        var x = 0; //initlal text box count
+                                                        $(add_button).click(function(e){ //on add input button click
+                                                            e.preventDefault();
+                                                            if(x < max_fields){ //max input box allowed
+                                                                x++; //text box increment
+                                                                $(wrapper).append('<div>'
+                                                                    + '<select class="selectpicker form-control" data-live-search="true" name="drug_' + x + '">'
+                                                                    + '@foreach ($inventory as $inv)<option>{{ $inv->drug_name }}</option>@endforeach</select>'
+                                                                    + '<input type="number" class="form-control" name="drug_' + x + '_qtt" placeholder="Quantity" min="1" max="5"></input>'
+                                                                    + '<a href="#" class="remove_field">Remove</a>'
+                                                                    + '</div>'); //add input box
+                                                                $(".selectpicker").selectpicker();
+
+                                                            }
+                                                        });
+                                                        
+                                                        $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+                                                            e.preventDefault(); $(this).parent('div').remove(); x--;
+                                                        })
+                                                </script>
                                             </div>
                                         </div>
-
-                                        </div>
-                                        <!-- test -->
-
-                                        <br>
-                                    <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         </form>

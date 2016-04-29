@@ -14,6 +14,8 @@
     	<link href="{{ asset('js/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet" />
     	<!-- Multiple Selection-->
     	<link href="{{ asset('css/bootstrap-select.min.css') }}" rel="stylesheet" />
+    	<!-- jQuery Js -->
+	    <script src="{{ asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
 
 	</head>
 	<body>
@@ -39,8 +41,7 @@
      <!-- /. WRAPPER  -->
 
 		<!-- JS Scripts-->
-	    <!-- jQuery Js -->
-	    <script src="{{ asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
+	    
 	      <!-- Bootstrap Js -->
 	    <script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
 	    <!-- Metis Menu Js -->
@@ -50,8 +51,6 @@
     	<script src="{{ asset('js/dataTables/dataTables.bootstrap.js') }}"></script>
     	<!-- Multiple select -->
 	    <script src="{{ asset('js/bootstrap-select.min.js') }}" type="text/javascript"></script>
-	      <!-- Add more -->
-	    <script src="{{ asset('js/addMore.js') }}" type="text/javascript"></script>
 
 	      <!-- Custom Js -->
 	    <script src="{{ asset('js/custom-scripts.js') }}" type="text/javascript"></script>
