@@ -19,7 +19,7 @@
                     <div class="panel-heading">
                         Patient Queue for Consultation
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-queue">
                         <div class="list-group">
                         @foreach ($queue as $que)
                             <a href="{{action('DocController@newcase')}}" class="list-group-item">

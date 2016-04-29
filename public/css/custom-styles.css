@@ -622,4 +622,8 @@ font-size: 19px;
 }
 }
 
-
+.panel-queue {
+    padding: 15px;
+    height: 200px;
+    overflow-y: scroll;
+}
