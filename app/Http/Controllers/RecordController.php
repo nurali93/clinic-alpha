@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Queue;
+use App\Dispensary;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Record;
@@ -43,19 +44,31 @@ class RecordController extends Controller
         $record->diagnosis = $request->input("diagnosis");
         $record->treatment = $request->input("treatment");
       
-        $fullpres = "";
+        $presName = "";
+        $presQty = "";
         $val = $request->input("xy");
         for($count=1; $count< $val+1; $count++ ){
-            $fullpres .= $request->input("drug_".$count);
-            $fullpres .= $request->input("drug_".$count."_qtt");
-            $fullpres .= "#";
+            $presName .= $request->input("drug_".$count);
+            $presQty .= $request->input("drug_".$count."_qtt");
+            $presName .= "#";
+            $presQty .= "#";
         }
-        $record->pres_med = $fullpres;
+        $record->pres_med = $presName;
+        $record->dispenseQuantity = $presQty;
         $record->save();
 
         $state = Queue::find($id); //retrieve whole row
-        $state->status ='Payment';
+        if(!is_null($state)){
+        $state->status = 'Payment';
         $state->save();
+        }
+
+        $todispense = new Dispensary;
+        $todispense->case_ref = $record->id;
+        $todispense->dispensed_drug_code = "$presName";
+        $todispense->dispensed_quantity = "$presQty";
+        $todispense->save();
+        //other fields in this table is to be filled by nurse using DispensaryController
 
         return redirect()->action('DocController@index');
     }

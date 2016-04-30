@@ -31,6 +31,7 @@
                             <select name='drug_supplier' class='form-control'>
                                 @foreach ($supplier as $supp)
                                 <option>{{ $supp->id }}</option>
+                                <!-- <option>{{ $supp->supp_name }}</option> -->
                                 @endforeach
                             </select>
                         {!! Form::label('', 'Intake Time', ['class' => 'control-label']) !!}

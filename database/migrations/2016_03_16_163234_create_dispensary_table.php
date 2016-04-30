@@ -12,16 +12,16 @@ class CreateDispensaryTable extends Migration
      */
     public function up()
     {
-        Schema::create('dispensary', function (Blueprint $table){
+        Schema::create('dispensaries', function (Blueprint $table){
             $table->increments('id');
             $table->integer('case_ref')->unsigned();
-            $table->foreign('case_ref')->references('id')->on('patient_cases')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('dispensed_drug_code')->unsigned();
-            $table->foreign('dispensed_drug_code')->references('id')->on('inventories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('case_ref')->references('id')->on('patients')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('dispensed_drug_code');
             $table->string('remarks');
             $table->string('dispensed_quantity');
             $table->float('price_per_unit');
             $table->float('total_price_sold');
+            $table->timestamps();
         });
     }
 
