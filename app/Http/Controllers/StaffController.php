@@ -27,8 +27,23 @@ class StaffController extends Controller
 		return view('staff.panel');
 	}
 
-	public function dispense()
+	public function dispense($ic, $name)
 	{
-		return view('staff.dispensary');
+		$getID = Patient::where('pt_ic', $ic)->first(); //whole row
+		$deID = $getID->id; //get the id from the ic
+		$getcaseID = Record::where('pt_id', $deID)->first();
+		$caseID = $getcaseID->id; 
+
+		$disData = Dispensary::where('case_ref', $caseID)->first(); //xpe pakai first() sbb setiap case unik, case lain xpakai id ni
+		$arrQty = (explode("#", $disData->dispense_quantity));
+		$arrDrug = (explode("#",$disData->dispense_drug_code));
+		//need declare $prices array x?
+		for($x=0; $x<count($arrDrug);$x++){
+			//get price of each drug into an array
+			$hehe = Inventory::where('spu', $arrDrug[$x])->first();
+			$prices[count($arrDrug)+1] = $hehe->spu;
+		} 
+		//arr1 = druglist , arr2= respective qty of drug, arr3= respective price of drug
+		return view('staff.dispensary')->with('name',$name)->with('arr2',$arrQty)->with('arr1',$arrDrug)->with('arr3',$prices);
 	}
 }
