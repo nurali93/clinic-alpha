@@ -32,10 +32,17 @@
                             <th>Unit Price</th>
                         </thead>
                         <tbody>
-                            <td></td>
+                            <!-- <td></td>
                             <td>Consultation fee</td>
                             <td></td>
-                            <td></td>
+                            <td></td> -->
+                        @for ($i = 0; $i < {{count(arr1)}}; $i++)
+                        <tr><td>{{$i+1}}</td>
+                            <!-- <td>{{drugname}}</td>
+                            <td>{{qty}}</td>
+                            <td>{{price}}</td> -->
+                        </tr>
+                        @endfor
                         </tbody>
                     </table>
                     <br><br>
