@@ -19,7 +19,7 @@
                     <div class="panel-heading">
                         Patient Queue for Consultation
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-queue">
                         <div class="list-group">
                             @foreach ($queue as $que)
                                     @if($que->status == "Payment")
@@ -35,9 +35,9 @@
                                     @endif
                             @endforeach
                         </div>
-                        <div class="text-right">
+                        <!-- <div class="text-right">
                             <a href="#">More <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         
                     </div>
                     <div class="panel-right">
-                    <h3>13</h3>
+                    <h3>{{ count($queue) }}</h3>
                      <strong> No. of Visits Today </strong>
 
                     </div>
@@ -63,8 +63,8 @@
                         
                     </div>
                     <div class="panel-right">
-                        <h3>79</h3>
-                       <strong> This Month Visits</strong>
+                        <h3>{{ count($queue) }}</h3>
+                       <strong> Total Patient</strong>
                     </div>
                 </div>
             </div>
