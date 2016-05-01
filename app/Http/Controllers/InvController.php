@@ -54,6 +54,8 @@ class InvController extends Controller
         $dDPur = $request->input('dateOfPurchase');
         $dDExp = $request->input('dateOfExpiry');
         $dSupp = $request->input('drug_supplier');
+
+        $suppID = Supplier::where('supp_name',$dSupp)->first();//change name to ID
         $dInt = $request->input('intakeTime');
         $dFreq = $request->input('frequency');
         $dSpu = $request->input('spu');
@@ -70,7 +72,9 @@ class InvController extends Controller
         $inventory->drug_precaution = $dPreCau;
         $inventory->dateOfPurchase = $dDPur;
         $inventory->dateOfExpiry = $dDExp;
-        $inventory->drug_supplier = $dSupp;
+
+
+        $inventory->drug_supplier = $suppID->id;
         $inventory->intakeTime = $dInt;
         $inventory->frequency = $dFreq;
         $inventory->spu = $dSpu;
