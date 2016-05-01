@@ -1,18 +1,32 @@
-$(document).ready(function () {
+(function ($) {
+    "use strict";
+    var mainApp = {
 
-    (function ($) {
+        initFunction: function () {
+            /*MENU 
+            ------------------------------------*/
+            $('#main-menu').metisMenu();
+            
+            $(window).bind("load resize", function () {
+                if ($(this).width() < 768) {
+                    $('div.sidebar-collapse').addClass('collapse')
+                } else {
+                    $('div.sidebar-collapse').removeClass('collapse')
+                }
+            });
+     
+        },
 
-        $('#filter').keyup(function () {
+        initialization: function () {
+            mainApp.initFunction();
 
-            var rex = new RegExp($(this).val(), 'i');
-            $('.searchable tr').hide();
-            $('.searchable tr').filter(function () {
-                return rex.test($(this).text());
-            }).show();
+        }
 
-        })
+    }
+    // Initializing ///
 
-        //mainApp.initFunction(); 
+    $(document).ready(function () {
+        mainApp.initFunction(); 
         $("#sideNav").click(function(){
             if($(this).hasClass('closed')){
                 $('.navbar-side').animate({left: '0px'});
@@ -26,16 +40,25 @@ $(document).ready(function () {
                 $('#page-wrapper').animate({'margin-left' : '0px'}); 
             }
         });
+    });
 
-    }(jQuery));
+}(jQuery));
 
-});
+// $('option').mousedown(function(e) {
+//     e.preventDefault();
+//     $(this).prop('selected', $(this).prop('selected') ? false : true);
+//     return false;
+// }); 
 
-$('option').mousedown(function(e) {
-    e.preventDefault();
-    $(this).prop('selected', $(this).prop('selected') ? false : true);
-    return false;
-}); 
+// $('#filter').keyup(function () {
+
+//             var rex = new RegExp($(this).val(), 'i');
+//             $('.searchable tr').hide();
+//             $('.searchable tr').filter(function () {
+//                 return rex.test($(this).text());
+//             }).show();
+
+//         })
 
 $('#tableA').dataTable();
 
