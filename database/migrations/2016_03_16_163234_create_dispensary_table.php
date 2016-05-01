@@ -14,8 +14,7 @@ class CreateDispensaryTable extends Migration
     {
         Schema::create('dispensaries', function (Blueprint $table){
             $table->increments('id');
-            $table->integer('case_ref')->unsigned();
-            $table->foreign('case_ref')->references('id')->on('patients')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('case_ref');
             $table->string('dispensed_drug_code');
             $table->string('remarks');
             $table->string('dispensed_quantity');

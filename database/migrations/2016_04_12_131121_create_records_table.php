@@ -19,7 +19,7 @@ class CreateRecordsTable extends Migration
             $table->string('diagnosis');
             $table->string('treatment');
             $table->string('pres_med');
-            $table->integer('dispenseQuantity');
+            $table->string('dispenseQuantity');
             $table->string('attachment_loc');
             $table->timestamps();
         });
