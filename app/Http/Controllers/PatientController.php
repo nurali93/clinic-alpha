@@ -177,5 +177,15 @@ class PatientController extends Controller
         return redirect()->action('PatientController@index');
     }
 
+    public function addToQueue(Request $request){
+        $queue = new Queue;
+        $queue->pt_ic = $id;
+        $queue->name = $pName;
+        $queue->status = 'Waiting';
+        $queue->save();
+
+        return redirect()->action('StaffController@index');
+    }
+
     /*$ptid = DB::table('patients')->where('pt_ic', $pIc)->value('id');*/
 }
