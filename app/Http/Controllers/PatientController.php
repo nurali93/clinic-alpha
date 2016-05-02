@@ -178,9 +178,12 @@ class PatientController extends Controller
     }
 
     public function addToQueue(Request $request){
+        
+
         $queue = new Queue;
-        $queue->pt_ic = $id;
-        $queue->name = $pName;
+        $queue->pt_ic = $request->input('pt_id');
+        $data = Patient::where('pt_ic', $request->input('pt_id'))->first();
+        $queue->name = $data->pt_name;
         $queue->status = 'Waiting';
         $queue->save();
 

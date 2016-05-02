@@ -23,7 +23,7 @@
                     <div class="col-lg-6 form-group">
                     <label>Patient Name</label>
                     <p>Patient Name</p>
-                    <label>Charges & Medicine</label>
+                    <label>Charges &amp; Medicine</label>
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <th>No</th>
@@ -36,11 +36,11 @@
                             <td>Consultation fee</td>
                             <td></td>
                             <td></td> -->
-                        @for ($i = 0; $i < {{count(arr1)}}; $i++)
+                        @for($i = 0; $i<count($arr1)-1; $i++)
                         <tr><td>{{$i+1}}</td>
-                            <!-- <td>{{drugname}}</td>
-                            <td>{{qty}}</td>
-                            <td>{{price}}</td> -->
+                            <td>{{$arr1[$i]}}</td>
+                            <td>{{$arr2[$i]}}</td>
+                            <td>price</td>
                         </tr>
                         @endfor
                         </tbody>
