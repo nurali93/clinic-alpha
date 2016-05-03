@@ -46,13 +46,14 @@ Route::controller('record','RecordController');
 Route::get('/staff',['middleware' => 'auth', 'uses' => 'StaffController@index']);
 Route::get('/staff/register',['middleware' => 'auth', 'uses' => 'StaffController@register']);
 Route::get('/staff/panel',['middleware' => 'auth', 'uses' => 'StaffController@panel']);
-Route::get('/staff/dispensary',['middleware' => 'auth', 'uses' => 'StaffController@dispense']);
+Route::get('/staff/dispensary/{ic}/{name}',['middleware' => 'auth', 'uses' => 'StaffController@dispense']);
 
 //CRUD routing
 Route::group(['middleware' => 'auth'], function(){
 	Route::resource('inventory','InvController');
 	Route::resource('supplier','SupplierController');
-	Route::resource('patient','PatientController');	
+	Route::get('patient/addtoqueue', 'PatientController@addToQueue');
+	Route::resource('patient','PatientController');
 	Route::resource('panel','PanelController');
 	Route::resource('case','CaseController');
 });

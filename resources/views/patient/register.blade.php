@@ -91,7 +91,7 @@
                 <h4>Existing Patient</h4>
                 <div class="row">
                     <div class="form-group">
-                        {!! Form::open(array('action' => 'PatientController@store')) !!}
+                        {!! Form::open(array('action' => 'PatientController@addToQueue', 'method' => 'GET')) !!}
                         <div class="col-lg-6">
                             {!! Form::label('', 'IC Number', ['class' => 'control-label']) !!}
                             {!! Form::text('pt_id', null, ['class' => 'form-control']) !!}

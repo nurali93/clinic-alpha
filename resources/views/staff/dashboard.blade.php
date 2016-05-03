@@ -23,7 +23,7 @@
                         <div class="list-group">
                             @foreach ($queue as $que)
                                     @if($que->status == "Payment")
-                                        <a href="{{action('StaffController@dispense', $que->pt_ic, $que->name)}}" class="list-group-item">
+                                        <a href="{{action('StaffController@dispense', array($que->pt_ic, $que->name))}}" class="list-group-item">
                                             <span class="badge">{{ $que->status }}</span>
                                             <i class="fa fa-fw fa-user"></i> {{ $que->name }}
                                         </a>
