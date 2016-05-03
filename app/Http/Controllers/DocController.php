@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Queue;
 use App\Patient;
 use App\Inventory;
+use App\Record;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -40,10 +41,15 @@ class DocController extends Controller
         $data->save();
         $ic = $data->pt_ic;
         $data2 = Patient::where('pt_ic', $ic)->first();
+        //$data3 = Record::where('pt_id', $data2);
 
         $inventory = Inventory::all();
 
-        return view('doctor.newcase')->with('data',$data)->with('data2',$data2)->with('inventory',$inventory);
+        return view('doctor.newcase')
+        ->with('data',$data)
+        ->with('data2',$data2)
+        ->with('inventory',$inventory);
+        //->with('history',$data3);
 
     }
 }

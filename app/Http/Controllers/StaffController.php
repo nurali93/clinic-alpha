@@ -53,15 +53,24 @@ class StaffController extends Controller
 		// arr1 = druglist , arr2= respective qty of drug, arr3= respective price of drug
 
 		$panel = Panel::all();
-		return view('staff.dispensary')->with('name',$name)->with('arr2',$arrQty)->with('arr1',$arrDrug)->with('arr3',$prices)->with('panel',$panel);
+		return view('staff.dispensary')->with('name',$name)
+		->with('arr2',$arrQty)
+		->with('arr1',$arrDrug)
+		->with('arr3',$prices)
+		->with('panel',$panel)
+		->with('ptid',$deID);
 	}
 
-	public function removeQueue()
+	public function removeQueue(Request $request)
 	{
 		$queue = Queue::all();
 		$patient = Patient::all();
-		//insert delete from queue
-		return redirect()->action('StaffController@index')->with('queue',$queue)->with('patient',$patient);
+	//insert delete from queue
+		$queue = Queue::find($request->input('pt_id'));
+  		$queue->delete();
+		return redirect()->action('StaffController@index')
+		->with('queue',$queue)
+		->with('patient',$patient);
         //return view('staff.dashboard');
 	}
 

@@ -123,7 +123,10 @@
                     <div class="col-lg-6">
                     <br>
                     <label>Patient Past Visits</label>
-                    <p class="form-control-static">{{ $data2->pt_ic }}</p>
+                    <p class="form-control-static">
+                        No previous record
+                    
+                    </p>
                 </div>
             </div>
         </div>

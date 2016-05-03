@@ -23,6 +23,9 @@
                     <div class="col-lg-6 form-group">
                     <label>Patient Name</label>
                     <p>{{$name}}</p>
+                    <label>Patient ID</label>
+                    <p>{{$ptid}}</p>
+                    <input name="pt_id" type="hidden" value="{{$ptid}}">
                     <label>Charges &amp; Medicine</label>
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
@@ -36,7 +39,7 @@
                             <td>Consultation fee</td>
                             <td></td>
                             <td>25.00</td>
-                        <?php $tot = 0.0 ?>
+                        <?php $tot = 25.00 ?>
                         @for($i = 0; $i<count($arr1)-1; $i++)
                         <tr><td>{{$i+2}}</td>
                             <td>{{$arr1[$i]}}</td>
