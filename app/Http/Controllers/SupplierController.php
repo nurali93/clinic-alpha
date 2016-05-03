@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Alert;
+use Validator;
 use Session;
 
 class SupplierController extends Controller
@@ -43,6 +44,24 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = ['required' => 'This field MUST not be empty.',
+                     'unique' => 'The data EXISTED already.',
+                     'email' => 'The input must be a valid email address.'
+        ];
+
+        $rules = [
+                    'supp_name'=>'required|unique:suppliers',
+                    'supp_contactName'=>'required',
+                    'supp_phoneNo'=>'required',
+                    'supp_email' =>'required|email',
+        ];
+
+        $validation = Validator::make($request->all(),$rules,$messages);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput($request->all());
+        }
+
         $supplier = new Supplier;
         $supplier->supp_name = $request->input('supp_name');
         $supplier->supp_contactName = $request->input('supp_contactName');
@@ -93,6 +112,24 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = ['required' => 'This field MUST not be empty.',
+                     'unique' => 'The data EXISTED already.',
+                     'email' => 'The input must be a valid email address.'
+        ];
+
+        $rules = [
+                    'supp_name'=>'required|unique:suppliers',
+                    'supp_contactName'=>'required',
+                    'supp_phoneNo'=>'required',
+                    'supp_email' =>'required|email',
+        ];
+
+        $validation = Validator::make($request->all(),$rules,$messages);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput($request->all());
+        }
+
         $supplier = Supplier::find($id);
         $supplier->supp_name = $request->input('supp_name');
         $supplier->supp_contactName = $request->input('supp_contactName');
@@ -106,7 +143,7 @@ class SupplierController extends Controller
         $supplier->supp_state = $request->input('supp_state');
         $supplier->save();
 
-        Alert::success('Save!')->persistent("Close")->autoclose(3000);
+        Alert::success('Save!')->persistent("Close")->autoclose(2000);
         return redirect()->action('SupplierController@index');
     }
 

@@ -22,7 +22,7 @@
                     <div class="panel-queue">
                         <div class="list-group">
                             @foreach ($queue as $que)
-                                    @if($que->status == "Payment")
+                                    @if($que->status == "Payment" || $que->status == "Consulting")
                                         <a href="{{action('StaffController@dispense', array($que->pt_ic, $que->name))}}" class="list-group-item">
                                             <span class="badge">{{ $que->status }}</span>
                                             <i class="fa fa-fw fa-user"></i> {{ $que->name }}
@@ -82,7 +82,7 @@
                         
                     </div>
                     <div class="panel-right">
-                        <h3>{{ count($queue) }}</h3>
+                        <h3>{{ count($patient) }}</h3>
                        <strong> Total Patient</strong>
                     </div>
                 </div>

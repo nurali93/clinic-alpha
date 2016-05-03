@@ -58,7 +58,7 @@ class PatientController extends Controller
         ];
 
         $rules = [
-                    'pt_ic'=>'required|unique:patients|regex:/^[0-9]{6}-[0-14]{2}-[0-9]{4}$/',
+                    'pt_ic'=>'required|unique:patients|regex:/^[0-9]{6}-[0-9]{2}-[0-9]{4}$/',
                     'pt_name'=>'required',
                     'pt_contactNo'=>'required'
         ];

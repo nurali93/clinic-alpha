@@ -19,7 +19,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-6">
-                <form role="form">
+                <form role="form" action={{action('StaffController@removeQueue')}}>
                     <div class="col-lg-6 form-group">
                     <label>Patient Name</label>
                     <p>{{$name}}</p>

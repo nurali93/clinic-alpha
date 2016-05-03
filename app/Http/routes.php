@@ -47,6 +47,7 @@ Route::get('/staff',['middleware' => 'auth', 'uses' => 'StaffController@index'])
 Route::get('/staff/register',['middleware' => 'auth', 'uses' => 'StaffController@register']);
 Route::get('/staff/panel',['middleware' => 'auth', 'uses' => 'StaffController@panel']);
 Route::get('/staff/dispensary/{ic}/{name}',['middleware' => 'auth', 'uses' => 'StaffController@dispense']);
+Route::get('/staff/removeQueue',['middleware' => 'auth', 'uses' => 'StaffController@removeQueue']);
 
 //CRUD routing
 Route::group(['middleware' => 'auth'], function(){

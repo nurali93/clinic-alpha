@@ -18,7 +18,8 @@ class StaffController extends Controller
 	public function index()
 	{
 		$queue = Queue::all();
-        return view('staff.dashboard')->with('queue',$queue);
+		$patient = Patient::all();
+        return view('staff.dashboard')->with('queue',$queue)->with('patient',$patient);
 	}
 
 	public function register()
@@ -54,4 +55,14 @@ class StaffController extends Controller
 		$panel = Panel::all();
 		return view('staff.dispensary')->with('name',$name)->with('arr2',$arrQty)->with('arr1',$arrDrug)->with('arr3',$prices)->with('panel',$panel);
 	}
+
+	public function removeQueue()
+	{
+		$queue = Queue::all();
+		$patient = Patient::all();
+		//insert delete from queue
+		return redirect()->action('StaffController@index')->with('queue',$queue)->with('patient',$patient);
+        //return view('staff.dashboard');
+	}
+
 }

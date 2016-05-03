@@ -12,10 +12,22 @@
                         {!! Form::open(array('action' => 'SupplierController@store')) !!}
                         {!! Form::label('', 'Supplier Name', ['class' => 'control-label']) !!}
                         {!! Form::text('supp_name', null, ['class' => 'form-control']) !!}
+                        @if($errors->has('supp_name'))
+                                {{ $errors->first('supp_name') }}<br>
+                        @endif
+
                         {!! Form::label('', 'Contact Person', ['class' => 'control-label']) !!}
                         {!! Form::text('supp_contactName', null, ['class' => 'form-control']) !!}
+                        @if($errors->has('supp_contactName'))
+                                {{ $errors->first('supp_contactName') }}<br>
+                        @endif
+                        
                         {!! Form::label('', 'Contact No', ['class' => 'control-label']) !!}
                         {!! Form::text('supp_phoneNo', null, ['class' => 'form-control']) !!}
+                        @if($errors->has('supp_phoneNo'))
+                                {{ $errors->first('supp_phoneNo') }}<br>
+                        @endif
+                        
                         {!! Form::label('', 'Alternate No', ['class' => 'control-label']) !!}
                         {!! Form::text('supp_altNo', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Fax', ['class' => 'control-label']) !!}
@@ -24,6 +36,10 @@
                     <div class="col-lg-6">
                         {!! Form::label('', 'Email address', ['class' => 'control-label']) !!}
                         {!! Form::text('supp_email', null, ['class' => 'form-control']) !!}
+                        @if($errors->has('supp_email'))
+                                {{ $errors->first('supp_email') }}<br>
+                        @endif
+                        
                         {!! Form::label('', 'Address', ['class' => 'control-label']) !!}
                         {!! Form::text('supp_billAddress', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Postcode', ['class' => 'control-label']) !!}

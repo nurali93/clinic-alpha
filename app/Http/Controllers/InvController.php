@@ -10,6 +10,7 @@ use App\Supplier;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Alert;
 use Validator;
 use Session;
 
@@ -45,6 +46,25 @@ class InvController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = ['required' => 'This field MUST not be empty.',
+                     'unique' => 'The data EXISTED already.',
+        ];
+
+        $rules = [
+                    'drug_name'=>'required',
+                    'drug_lowlimit'=>'required',
+                    'dateOfPurchase'=>'required',
+                    'dateOfExpiry'=>'required',
+                    'drug_supplier'=>'required',
+                    'unitsOnHand'=>'required',
+        ];
+
+        $validation = Validator::make($request->all(),$rules,$messages);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput($request->all());
+        }
+
         //data input
         $dName = $request->input('drug_name');
         $dLow = $request->input('drug_lowlimit');
@@ -81,6 +101,7 @@ class InvController extends Controller
         $inventory->unitsOnHand = $dUnitHnd;
         $inventory->save();
         
+        Alert::success('Successfully added!')->persistent("Close")->autoclose(2000);
         return redirect()->action('InvController@index');
     }
 
@@ -118,6 +139,25 @@ class InvController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = ['required' => 'This field MUST not be empty.',
+                     'unique' => 'The data EXISTED already.',
+        ];
+
+        $rules = [
+                    'drug_name'=>'required',
+                    'drug_lowlimit'=>'required',
+                    'dateOfPurchase'=>'required',
+                    'dateOfExpiry'=>'required',
+                    'drug_supplier'=>'required',
+                    'unitsOnHand'=>'required',
+        ];
+
+        $validation = Validator::make($request->all(),$rules,$messages);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput($request->all());
+        }
+
         $dName = $request->input('drug_name');
         $dLow = $request->input('drug_lowlimit');
         $dType = $request->input('drug_type');
@@ -126,6 +166,7 @@ class InvController extends Controller
         $dDPur = $request->input('dateOfPurchase');
         $dDExp = $request->input('dateOfExpiry');
         $dSupp = $request->input('drug_supplier');
+        $suppID = Supplier::where('supp_name',$dSupp)->first();//change name to ID
         $dInt = $request->input('intakeTime');
         $dFreq = $request->input('frequency');
         $dSpu = $request->input('spu');
@@ -140,13 +181,14 @@ class InvController extends Controller
         $inventory->drug_precaution = $dPreCau;
         $inventory->dateOfPurchase = $dDPur;
         $inventory->dateOfExpiry = $dDExp;
-        $inventory->drug_supplier = $dSupp;
+        $inventory->drug_supplier = $suppID->id;
         $inventory->intakeTime = $dInt;
         $inventory->frequency = $dFreq;
         $inventory->spu = $dSpu;
         $inventory->unitsOnHand = $dUnitHnd;
         $inventory->save();
         
+        Alert::success('Save!')->persistent("Close")->autoclose(2000);
         return redirect()->action('InvController@index');
     }
 

@@ -17,7 +17,8 @@ class DocController extends Controller
 	public function index()
 	{
 		$queue = Queue::all();
-		return view('doctor.dashboard')->with('queue',$queue);
+		$patient = Patient::all();
+		return view('doctor.dashboard')->with('queue',$queue)->with('patient',$patient);
 	}
 
 	public function newcase()

@@ -110,6 +110,22 @@ class PanelController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = ['required' => 'This field MUST not be empty.',
+                     'unique' => 'The data EXISTED already.',
+        ];
+
+        $rules = [
+                    'p_company'=>'required|unique:panels',
+                    'p_contactname'=>'required',
+                    'p_telno'=>'required'
+        ];
+
+        $validation = Validator::make($request->all(),$rules,$messages);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput($request->all());
+        }
+
         $pCode = $request->input('p_code');
         $pComp = $request->input('p_company');
         $pConPer = $request->input('p_contactname');

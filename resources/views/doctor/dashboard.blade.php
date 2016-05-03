@@ -22,15 +22,18 @@
                     <div class="panel-queue">
                         <div class="list-group">
                         @foreach ($queue as $que)
-                            <a href="#" class="list-group-item">
-                                <span class="badge">{{ $que->status }}</span>
-                                <i class="fa fa-fw fa-user"></i> {{ $que->name }}
-                                <a href="{{action('DocController@show', $que->id)}}" type="button" class="btn btn-default">Serve</a>
-                            </a>
+                            @if($que->status == "Waiting" || $que->status == "Consulting")
+                                <a href="{{action('DocController@show', $que->id)}}" class="list-group-item">
+                                    <span class="badge">{{ $que->status }}</span>
+                                    <i class="fa fa-fw fa-user"></i> {{ $que->name }}
+                                </a>
+                            @else
+                                <a href="#" class="list-group-item">
+                                    <span class="badge">{{ $que->status }}</span>
+                                    <i class="fa fa-fw fa-user"></i> {{ $que->name }}
+                                </a>
+                            @endif
                         @endforeach
-                        </div>
-                        <div class="text-right">
-                            <a href="#">More <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -43,9 +46,28 @@
                         
                     </div>
                     <div class="panel-right">
-                    <h3>13</h3>
-                     <strong> No. of Visits Today </strong>
+                    <h3>{{ count($queue) }}</h3>
+                     <strong> Total in Queue </strong>
 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        To Do List (Click to remove)
+                    </div>
+                    <div class="panel-queue">
+                        <div class="list-group">
+                                <input type="text" class="form-control" id="task"></input>
+                                <input type="button" id="add" class="form-control" value="Add"></input>
+                                
+                                <div id="todos"></div>
+                        </div>
+                        <!-- <div class="text-right">
+                            <a href="#">More <i class="fa fa-arrow-circle-right"></i></a>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -57,8 +79,8 @@
                         
                     </div>
                     <div class="panel-right">
-                        <h3>79</h3>
-                       <strong> This Month Visits</strong>
+                        <h3>{{ count($patient) }}</h3>
+                       <strong> Total Patient</strong>
                     </div>
                 </div>
             </div>
