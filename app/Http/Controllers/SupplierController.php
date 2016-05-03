@@ -9,6 +9,7 @@ use App\Supplier;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Alert;
 use Session;
 
 class SupplierController extends Controller
@@ -55,6 +56,7 @@ class SupplierController extends Controller
         $supplier->supp_state = $request->input('supp_state');
         $supplier->save();
 
+        Alert::success('Successfully added!')->persistent("Close")->autoclose(3000);
         return redirect()->action('SupplierController@index');
 
     }
@@ -104,6 +106,7 @@ class SupplierController extends Controller
         $supplier->supp_state = $request->input('supp_state');
         $supplier->save();
 
+        Alert::success('Save!')->persistent("Close")->autoclose(3000);
         return redirect()->action('SupplierController@index');
     }
 

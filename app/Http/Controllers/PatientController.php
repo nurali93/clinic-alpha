@@ -11,6 +11,7 @@ use App\Panel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Alert;
 use Validator;
 use Session;
 
@@ -51,13 +52,15 @@ class PatientController extends Controller
     {
         //data validation
 
-        $messages = ['required' => 'This field MUST be filled.',
-                     'unique' => 'The data entered EXISTED.',
+        $messages = ['required' => 'This field MUST not be empty.',
+                     'unique' => 'The data EXISTED already.',
+                     'regex' => 'IC is invalid. The format is xxxxxx-xx-xxxx',
         ];
 
         $rules = [
-                    'pt_ic'=>'required|unique:patients',
-                    'pt_name'=>'required:patients',
+                    'pt_ic'=>'required|unique:patients|regex:/^[0-9]{6}-[0-14]{2}-[0-9]{4}$/',
+                    'pt_name'=>'required',
+                    'pt_contactNo'=>'required'
         ];
 
         $validation = Validator::make($request->all(),$rules,$messages);
@@ -98,6 +101,7 @@ class PatientController extends Controller
         $queue->status = 'Waiting';
         $queue->save();
 
+        Alert::success('Registered!')->autoclose(2000);
         return redirect()->action('StaffController@index');
     }
 
@@ -134,6 +138,22 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = ['required' => 'This field MUST not be empty.',
+                     'unique' => 'The data EXISTED already.',
+                     'digits' => 'IC format is XXXXXXXXXXXX'
+        ];
+
+        $rules = [
+                    'pt_name'=>'required',
+                    'pt_contactNo'=>'required'
+        ];
+
+        $validation = Validator::make($request->all(),$rules,$messages);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput($request->all());
+        }
+
         $pIc = $request->input('pt_ic');
         $pName = $request->input('pt_name');
         $pCont = $request->input('pt_contactNo');
@@ -187,6 +207,7 @@ class PatientController extends Controller
         $queue->status = 'Waiting';
         $queue->save();
 
+        Alert::success('Added to queue!')->autoclose(2000);
         return redirect()->action('StaffController@index');
     }
 

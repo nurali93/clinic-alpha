@@ -63,7 +63,8 @@
                     </div>
                     <div class="panel-queue">
                         <div class="list-group">
-                                <input type="text" class="form-control" id="task"></input><button id="add" style="position: absolute; right: 0" value="Add">HAHA</button>
+                                <input type="text" class="form-control" id="task"></input>
+                                <input type="button" id="add" class="form-control" value="Add"></input>
                                 
                                 <div id="todos"></div>
                         </div>

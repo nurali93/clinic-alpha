@@ -9,6 +9,9 @@ use App\Panel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Validator;
+use Alert;
+
 class PanelController extends Controller
 {
     /**
@@ -41,6 +44,22 @@ class PanelController extends Controller
     public function store(Request $request)
     {
 
+        $messages = ['required' => 'This field MUST not be empty.',
+                     'unique' => 'The data EXISTED already.',
+        ];
+
+        $rules = [
+                    'p_company'=>'required|unique:panels',
+                    'pt_name'=>'required',
+                    'pt_contactNo'=>'required'
+        ];
+
+        $validation = Validator::make($request->all(),$rules,$messages);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput($request->all());
+        }
+
         $panel = new Panel;
         $panel->p_company = $request->input('p_company');
         $panel->p_contactname = $request->input('p_contactname');
@@ -54,6 +73,7 @@ class PanelController extends Controller
         $panel->p_state = $request->input('p_state');
         $panel->save();
 
+        Alert::success('Successfull added!')->persistent("Close")->autoclose(3000);
         return redirect()->action('PanelController@index');
     }
 
@@ -115,6 +135,7 @@ class PanelController extends Controller
         $panel->p_state = $pStat;
         $panel->save();
 
+        Alert::success('Save!')->persistent("Close")->autoclose(3000);
         return redirect()->action('PanelController@index');
     }
 

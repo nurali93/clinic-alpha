@@ -42,6 +42,9 @@
 
                             {!! Form::label('', 'Contact No', ['class' => 'control-label']) !!}
                             {!! Form::text('pt_contactNo', null, ['class' => 'form-control']) !!}
+                            @if($errors->has('pt_contactNo'))
+                                {{ $errors->first('pt_contactNo') }}<br>
+                            @endif
                             
                             {!! Form::label('pt_dob', 'Date of Birth', ['class' => 'control-label']) !!}
                             {!! Form::input('date','pt_dob', null, ['class' => 'form-control']) !!}<br>

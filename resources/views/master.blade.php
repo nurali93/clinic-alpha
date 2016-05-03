@@ -18,11 +18,17 @@
     	<link href="{{ asset('css/bootstrap-select.min.css') }}" rel="stylesheet" />
     	<!-- jQuery Js -->
 	    <script src="{{ asset('js/jquery-1.10.2.js') }}" type="text/javascript"></script>
+	    <!-- Sweetalert 2 js-->
+	    <script src="{{ asset('js/sweetalert.min.js') }}" type="text/javascript"></script>
+	    <!-- Sweetalert 2 css-->
+    	<link href="{{ asset('css/sweetalert.css') }}" rel="stylesheet" />
 
 	</head>
 	<body>
 		@include('header')
 		@yield('sidebar')
+		@include('sweet::alert')
+		
 
 		<!-- /. PAGE WRAPPER START -->
         <div id="wrapper">
@@ -57,7 +63,7 @@
 	    <script src="{{ asset('js/todo.js') }}" type="text/javascript"></script>
 	      <!-- Custom Js -->
 	    <script src="{{ asset('js/custom-scripts.js') }}" type="text/javascript"></script>
-
+	    
 
 	</body>
 </html>

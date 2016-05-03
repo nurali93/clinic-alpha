@@ -8,6 +8,7 @@ use App\Dispensary;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Record;
+use Alert;
 
 class RecordController extends Controller
 {
@@ -70,6 +71,7 @@ class RecordController extends Controller
         $todispense->save();
         //other fields in this table is to be filled by nurse using DispensaryController
 
+        Alert::success('Submitted!')->persistent("Close")->autoclose(3000);
         return redirect()->action('DocController@index');
     }
 

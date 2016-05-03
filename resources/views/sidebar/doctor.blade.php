@@ -8,9 +8,9 @@
             <li>
                 <a href="{{action('PatientController@index')}}"><i class="fa fa-pencil-square"></i> Patient</a>
             </li>
-			<li>
+			<!-- <li>
                 <a href="{{action('CaseController@create')}}"><i class="fa fa-money"></i> Write Case</a>
-            </li>
+            </li> -->
         </ul>
 
     </div>
