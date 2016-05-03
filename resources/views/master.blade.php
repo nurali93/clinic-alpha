@@ -53,7 +53,8 @@
     	<script src="{{ asset('js/dataTables/dataTables.bootstrap.js') }}"></script>
     	<!-- Multiple select -->
 	    <script src="{{ asset('js/bootstrap-select.min.js') }}" type="text/javascript"></script>
-
+	    <!-- To Do -->
+	    <script src="{{ asset('js/todo.js') }}" type="text/javascript"></script>
 	      <!-- Custom Js -->
 	    <script src="{{ asset('js/custom-scripts.js') }}" type="text/javascript"></script>
 

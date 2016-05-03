@@ -50,8 +50,26 @@
                     </div>
                     <div class="panel-right">
                     <h3>{{ count($queue) }}</h3>
-                     <strong> No. of Visits Today </strong>
+                     <strong> Total in Queue </strong>
 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        To Do List (Click to remove)
+                    </div>
+                    <div class="panel-queue">
+                        <div class="list-group">
+                                <input type="text" class="form-control" id="task"></input><button id="add" style="position: absolute; right: 0" value="Add">HAHA</button>
+                                
+                                <div id="todos"></div>
+                        </div>
+                        <!-- <div class="text-right">
+                            <a href="#">More <i class="fa fa-arrow-circle-right"></i></a>
+                        </div> -->
                     </div>
                 </div>
             </div>
