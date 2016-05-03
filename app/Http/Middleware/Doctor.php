@@ -44,14 +44,17 @@ class Doctor
             }
         } else {
             if($this->auth->user()->doctor){
-                $queue = Queue::all();
-                return view('doctor.dashboard')->with('queue',$queue);
+                $queue = Queue::all();    
+                $patient = Patient::all();
+                return view('doctor.dashboard')->with('queue',$queue)->with('patient',$patient);
             } else if($this->auth->user()->admin){
-                $queue = Queue::all();
-                return view('doctor.dashboard')->with('queue',$queue);
+                $queue = Queue::all();    
+                $patient = Patient::all();
+                return view('doctor.dashboard')->with('queue',$queue)->with('patient',$patient);
             } else {
-                $queue = Queue::all();
-                return view('staff.dashboard')->with('queue',$queue);
+                $queue = Queue::all();    
+                $patient = Patient::all();
+                return view('staff.dashboard')->with('queue',$queue)->with('patient',$patient);
             }
         }
 
