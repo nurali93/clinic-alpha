@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Queue;
+use App\Patient;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
