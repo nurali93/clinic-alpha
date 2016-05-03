@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Validator;
+use Sesson;
 use Alert;
 
 class PanelController extends Controller
@@ -50,8 +51,8 @@ class PanelController extends Controller
 
         $rules = [
                     'p_company'=>'required|unique:panels',
-                    'pt_name'=>'required',
-                    'pt_contactNo'=>'required'
+                    'p_contactname'=>'required',
+                    'p_telno'=>'required'
         ];
 
         $validation = Validator::make($request->all(),$rules,$messages);

@@ -13,10 +13,22 @@
                         {!! Form::open(array('action' => 'PanelController@store')) !!}
                         {!! Form::label('', 'Panel Name', ['class' => 'control-label']) !!}
                         {!! Form::text('p_company', null, ['class' => 'form-control']) !!}
+                        @if($errors->has('p_company'))
+                                {{ $errors->first('p_company') }}<br>
+                        @endif
+
                         {!! Form::label('', 'Contact Person', ['class' => 'control-label']) !!}
                         {!! Form::text('p_contactname', null, ['class' => 'form-control']) !!}
+                        @if($errors->has('p_contactname'))
+                                {{ $errors->first('p_contactname') }}<br>
+                        @endif
+
                         {!! Form::label('', 'Contact No', ['class' => 'control-label']) !!}
                         {!! Form::text('p_telno', null, ['class' => 'form-control']) !!}
+                        @if($errors->has('p_telno'))
+                                {{ $errors->first('p_telno') }}<br>
+                        @endif
+
                         {!! Form::label('', 'Extension', ['class' => 'control-label']) !!}
                         {!! Form::text('p_ext', null, ['class' => 'form-control']) !!}
                         {!! Form::label('', 'Fax', ['class' => 'control-label']) !!}

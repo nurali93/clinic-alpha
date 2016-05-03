@@ -53,7 +53,13 @@
                         </tr>
                         </tbody>
                     </table>
-                    Payment method: //tlg letak select list of panels
+                    <label class="control-label">Payment method:</label>
+                    <select name='pt_panel' class='form-control'>
+                                    <option></option>
+                                    @foreach ($panel as $pan)
+                                    <option>{{ $pan->p_company }}</option>
+                                    @endforeach
+                    </select>
                     <br><br>
                     <button type="submit" class="btn btn-success">Submit</button>
                     </div>

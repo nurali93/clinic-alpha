@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Patient;
 use App\Record;
 use App\Inventory;
+use App\Panel;
 
 class StaffController extends Controller
 {
@@ -49,6 +50,8 @@ class StaffController extends Controller
 		}
 		// $arrOne = count($arrDrug);
 		// arr1 = druglist , arr2= respective qty of drug, arr3= respective price of drug
-		return view('staff.dispensary')->with('name',$name)->with('arr2',$arrQty)->with('arr1',$arrDrug)->with('arr3',$prices);
+
+		$panel = Panel::all();
+		return view('staff.dispensary')->with('name',$name)->with('arr2',$arrQty)->with('arr1',$arrDrug)->with('arr3',$prices)->with('panel',$panel);
 	}
 }
