@@ -41,10 +41,11 @@ class StaffController extends Controller
 		$arrQty = (explode("#", $disData->dispensed_quantity));
 		$arrDrug = (explode("#",$disData->dispensed_drug_code));
 		//need declare $prices array x?
-		for($x=0; $x<count($arrDrug);$x++){
+		$prices = array();
+		for($x=0; $x<count($arrDrug)-1;$x++){
 			//get price of each drug into an array
-			$hehe = Inventory::where('spu', $arrDrug[$x])->first();
-			$prices[count($arrDrug)+1] = $hehe->spu;
+			$hehe = Inventory::where('drug_name', $arrDrug[$x])->first();
+			$prices[$x] = $hehe->spu;
 		}
 		// $arrOne = count($arrDrug);
 		// arr1 = druglist , arr2= respective qty of drug, arr3= respective price of drug
