@@ -67,7 +67,7 @@ class StaffController extends Controller
 		$patient = Patient::all();
 	//insert delete from queue
 		$queue = Queue::find($request->input('pt_id'));
-  		$queue->delete();
+  		//$queue->delete();
 		return redirect()->action('StaffController@index')
 		->with('queue',$queue)
 		->with('patient',$patient);

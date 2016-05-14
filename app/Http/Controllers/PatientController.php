@@ -55,12 +55,14 @@ class PatientController extends Controller
         $messages = ['required' => 'This field MUST not be empty.',
                      'unique' => 'The data EXISTED already.',
                      'regex' => 'IC is invalid. The format is xxxxxx-xx-xxxx',
+                     'alpha' => 'Alphabet only',
+                     'numeric' => 'Number only',
         ];
 
         $rules = [
                     'pt_ic'=>'required|unique:patients|regex:/^[0-9]{6}-[0-9]{2}-[0-9]{4}$/',
-                    'pt_name'=>'required',
-                    'pt_contactNo'=>'required'
+                    'pt_name'=>'required|alpha',
+                    'pt_contactNo'=>'required|numeric'
         ];
 
         $validation = Validator::make($request->all(),$rules,$messages);
@@ -140,7 +142,7 @@ class PatientController extends Controller
     {
         $messages = ['required' => 'This field MUST not be empty.',
                      'unique' => 'The data EXISTED already.',
-                     'digits' => 'IC format is XXXXXXXXXXXX'
+                     'digits' => 'IC format is XXXXXXXXXXXX',
         ];
 
         $rules = [
