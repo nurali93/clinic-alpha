@@ -4,7 +4,7 @@ A clinic management system developed for Final Year Project, Kuliyyah of ICT, In
 
 ### Tech Stack
 
-- Laravel PHP Framework
-- Bootstrap 3
-- JQuery 1.10.2
-- Sweet Alert 2
+- [Laravel PHP Framework](https://laravel.com)
+- [Bootstrap 3](http://getbootstrap.com)
+- [JQuery 1.10.2](https://jquery.com)
+- [Sweet Alert 2](https://sweetalert.js.org/guides/)
